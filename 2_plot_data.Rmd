@@ -1,0 +1,370 @@
+---
+title: "Untitled"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+# purrr
+# stringr
+# lubridate
+#dplyr
+# ggdist
+# gghalves
+```
+
+
+
+```{r}
+# look at control files to read in run parameters
+# run_models <- read.csv("../data_cache/Controls/run_models.csv")[, "run_models"]
+
+
+
+```
+
+[] Check if run_models is TRUE
+[x] Find the most recent file
+[x] Find the second most recent file
+[] Are there changes?
+  [] Yes --
+    [] Remake report
+      [] QC
+      [] Vis
+      [] Stats
+    [] Highlight new data
+    [] Add a trigger to email out the new document in ../data_cache/Controls
+  [] No -- 
+    [] Alternate no changes document or send the old one with no changes noted.
+
+
+
+```{r eval=FALSE, include=FALSE}
+records <- list.files("../data/cache/")
+records 
+
+# extract creation times for each file from its name.
+records_times <- purrr::map(
+  records, function(record){
+    if ( stringr::str_detect(record, 'rootbot_') ){
+      record <- stringr::str_split(record, '_')
+      record <- stringr::str_remove(record, 'rootbot_')
+      return(lubridate::ymd_hms(record))  
+    } else {
+      # if there is not rootbot prefix, then we don't want to consider the file. 
+      # it must have been introduced by mistake. 
+      return(lubridate::ymd_hms("1970-01-01_00?00?00"))    
+    }  
+})
+
+# consider the most recent two entries.
+newest_time        <- max(unlist(records_times))
+second_newest_time <- max(unlist(records_times[records_times != newest_time]))
+
+
+new_record <- read.csv(paste0("../data_cache/Records/", 
+                              records[records_times == newest_time]))
+
+old_record <- read.csv(paste0("../data_cache/Records/", 
+                              records[records_times == second_newest_time]))
+# drop index
+new_record <- new_record[, !(names(new_record) %in% c('X'))]
+old_record <- old_record[, !(names(old_record) %in% c('X'))]
+
+# Are there changes in the data?
+old_record['InOld'] <- TRUE 
+all_records <- dplyr::full_join(new_record, old_record)
+all_records[is.na(all_records$InOld), 'InOld'] <- FALSE
+
+
+# added records
+compare_records <- all_records[all_records$InOld == FALSE, ]
+
+
+n_new_records <- nrow(compare_records)
+if (n_new_records == 0){
+  print("No additional records found.")
+  # TODO write out to /Controls
+  # TODO take no-update action
+} else {
+  print(paste0(as.character(n_new_records)," new records found!"))
+}
+
+
+# TODO use the groups in compare_records to retrieve the relevant matches from 
+# all_records
+
+head(compare_records)
+
+# genotype
+# group
+# TODO tlc on group, some don't have a value.
+```
+
+
+```{r}
+
+# 
+all_records <- read.csv('../data/cache/rootbot_2022-03-03_14-20-06.464849.csv')
+```
+
+
+```{r}
+library(tidyverse)
+
+
+# cleaning & QC
+library(janitor)
+all_records <- janitor::clean_names(all_records)
+
+
+all_records <- all_records[, c(
+  "length",        # y
+  "time_elapsed",  # Time
+  "group",         # Well watered or Water Stressed
+  "genotype",      # Genotype
+  "uid",           # UID of plate x batch
+  "replicate"      # seed within UID
+  )]
+
+```
+
+
+
+```{r}
+# Round down elapsed time into something more useful
+
+
+all_records$days_elapsed <- str_extract(all_records$time_elapsed, "\\d days") %>%
+  str_replace(' days', '') %>% as.numeric()
+all_records$sec_elapsed <- str_extract(all_records$time_elapsed, "\\d+:\\d+:\\d+") %>% 
+  lubridate::hms() %>% 
+  lubridate::as.difftime()
+
+# Add days elapsed in after converting to seconds.
+all_records$sec_elapsed <- all_records$sec_elapsed + (all_records$days_elapsed*(24*60*60))
+all_records$sec_elapsed <- lubridate::as.difftime(all_records$sec_elapsed)
+
+
+all_records$hours_elapsed <- round(all_records$sec_elapsed / (60*60), 0) %>% as.integer()
+
+all_records <- all_records[, c("length", "hours_elapsed", "group", "genotype", "uid", "replicate")]
+
+
+# summary statistics
+ggplot(all_records, aes(hours_elapsed))+
+  geom_histogram(bins =  100)
+
+#   geom_density()
+
+
+
+# TODO there are some values which do not fall in the expected two times. 
+# These should be handled by 
+# 1. allowing factor levels to vary between groups or 
+# 2. widening the bins (e.g. 27-33 -> "30")
+
+
+# summary statistics
+tally_tab <- all_records %>% 
+  select(genotype, group, length) %>% 
+  group_by(genotype, group) %>% 
+  tally()
+
+
+summary_tab <- all_records %>% 
+  select(genotype, group, length) %>% 
+  group_by(genotype, group) %>% 
+  summarise(mean_length = mean(length, na.rm = T),
+            sd_length   = sd(length, na.rm = T)
+            )
+
+summary_tab
+
+
+```
+
+```{r}
+library(ggh4x)
+library(ggsignif)  
+library("PNWColors")
+library('agricolae')
+
+current_genotype = 'CML277'
+
+
+for(current_genotype in unique(all_records$genotype)){
+  
+  temp <- all_records[all_records$genotype == current_genotype, ]
+  
+  # tweak group ordering for plotting
+  temp$group <- factor(temp$group, c('ww', 'ws'))
+  temp
+  
+
+  
+
+  if( length(unique(temp$hours_elapsed)) == 1 ){
+
+    
+    fm_ph <- agricolae::HSD.test(fm, trt = c('group'))
+    fm_ph <- fm_ph$groups
+    fm_ph$comparison <- rownames(fm_ph)
+    fm_ph$comparison <- stringr::str_replace(fm_ph$comparison, ":", ".")
+    
+  } else if( length(unique(temp$group)) == 1 ){
+
+    
+    fm_ph <- agricolae::HSD.test(fm, trt = c('hours_elapsed'))
+    fm_ph <- fm_ph$groups
+    fm_ph$comparison <- rownames(fm_ph)
+    fm_ph$comparison <- stringr::str_replace(fm_ph$comparison, ":", ".")
+    
+  } else{
+    fm <- lm(length ~ hours_elapsed*group, temp)
+    # annotations
+    fm_tab <- broom::tidy(fm)
+    fm_tab    
+    
+    fm_ph <- agricolae::HSD.test(fm, trt = c('hours_elapsed', 'group'))
+    fm_ph <- fm_ph$groups
+    fm_ph$comparison <- rownames(fm_ph)
+    fm_ph$comparison <- stringr::str_replace(fm_ph$comparison, ":", ".")
+  }
+  
+
+  
+  
+  # set up base of the figure. Pass in aes to each geom so that we can use 
+  # different columns for annotation
+  fig <- temp %>% 
+    ggplot()+
+    ggdist::stat_halfeye(
+      aes(interaction(hours_elapsed, group), length, fill = group),
+      adjust = .5, 
+      width = .6, 
+      .width = 0, 
+      justification = -.2, 
+      point_colour = NA
+    ) + 
+    geom_boxplot(
+      aes(interaction(hours_elapsed, group), length, fill = group),
+      width = .15, 
+      outlier.shape = NA
+    ) +
+    ## add justified jitter from the {gghalves} package
+    gghalves::geom_half_point(
+          aes(interaction(hours_elapsed, group), length, fill = group),
+          side = "l", 
+      range_scale = .4, 
+      alpha = .3
+    ) +
+    scale_x_discrete(guide = "axis_nested")+
+    xlab("")+
+    ylab("Length (mm)")+
+    labs(title = paste('Genotype: ', current_genotype))+
+    ggthemes::theme_clean()+
+    ggthemes::scale_fill_few()+
+    theme(legend.position = 'bottom')
+  
+  
+  
+  # check if there's more than one group and add in the relevant comparisons 
+  if( !((length(unique(temp$group)) == 1) & (length(unique(temp$hours_elapsed)) == 1)) ){
+
+    y_pos_start <- max(temp$length)
+    y_pos_step <- 1 #y_pos_start / 10
+    # select each hsd group. Then for each letter in in the grouping code add in a 
+    # label with a letter specific y axis
+    for(i in seq_along(unique(fm_ph$comparison)) ){
+      fm_ph_subset = fm_ph[fm_ph$comparison == unique(fm_ph$comparison)[i] , ]
+      
+      # this is a messy way to get the comparisons at different locations.
+      hsd_letters <- strsplit(fm_ph_subset$groups, split = "")[[1]]
+      for(hsd_letter in hsd_letters){
+        y_increment = seq_along(letters)[hsd_letter == letters]
+        
+        dat = data.frame(
+            x=fm_ph_subset$comparison,
+            y=c(y_pos_start+(y_pos_step*(y_increment))),
+            annotation=toupper(fm_ph_subset$groups))
+        
+        fig <- fig+geom_label(
+          data=dat,
+          aes(x=x, y=y, label=annotation), 
+          fontface="bold", 
+          fill = pnw_palette("Sailboat",4,type="continuous")[y_increment],
+          color = pnw_palette("Sailboat",4,type="continuous")[y_increment]
+          )
+        
+        fig <- fig+geom_text(
+          data=dat,
+          aes(x=x, y=y, label=annotation), 
+          fontface="bold"
+          )
+      }
+    }    
+    
+        
+  }
+  
+  
+  
+
+  
+  
+  ggsave(paste0('../reports/figures/',current_genotype,'.tiff'), fig)
+
+}
+
+
+
+
+
+
+
+
+
+```
+
+
+
+```{r}
+
+```
+
+
+
+
+
+
+
+```{r}
+
+```
+
+
+```{r}
+
+temp = all_records[all_records$genotype == ' NC338', ]
+
+
+lm(length ~ group, temp)
+
+
+```
+
+
+```{r}
+skimr::skim(all_records)
+```
+
+
+```{r}
+library(lme4)
+
+lmer(length ~ genotype*group , random = ~1|rootid)
+
+```
+
