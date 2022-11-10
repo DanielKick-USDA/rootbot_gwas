@@ -1,0 +1,11 @@
+image, root_name, root, length, vector_length, surface, volume, direction, diameter, root_order, root_ontology, parent_name, parent, insertion_position, insertion_angle, n_child, child_density, first_child, insertion_first_child, last_child, insertion_last_child
+20220303-210003-plate_033, D940Yseed#5, 759b207b-8a63-40ad-9e7e-a1650c62fd20,0,0,0,0, NaN,0.025753139,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220303-210003-plate_033, D940Yseed#4, 6e0cd2d6-1b21-4b71-ad29-4048bba1ba5b,0,0,0,0, NaN,0.028779648,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220303-210003-plate_033, D940Yseed#3, dab5dd56-a886-4d0a-be27-b2f084f16f2e,0.13236563,0.13236563,0.006937575,3.01E-05,254.0545962,0.016665865,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220303-210003-plate_033, D940Yseed#1, 459fcd5a-3843-4eac-a925-7624670e804d,0.5398721,0.53843975,0.012219097,2.37E-05,281.7700285,0.006060371,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220303-210003-plate_033, D940Yseed#2, 4e2aacc5-2eaf-44f2-a395-0d717b97f0c3,0.496561,0.4599676,0.006288352,7.91E-06,238.9897397,0.005555093,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220303-210003-plate_033, D940Yseed#10, 6f08ef5b-9666-4c8e-a236-e7d45c89581a,0,0,0,0, NaN,0.003030303,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220303-210003-plate_033, D940Yseed#9, e70bbdff-7704-434f-b1c6-05fb8543076b,0,0,0,0, NaN,0.034832146,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220303-210003-plate_033, D940Yseed#8, da38bf8f-6402-4d1f-924f-3de87e56b57c,0,0,0,0, NaN,0.010604965,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220303-210003-plate_033, D940Yseed#7, 405caae8-0257-475d-aa8b-d6c71b35a349,0,0,0,0, NaN,0.01666722,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220303-210003-plate_033, D940Yseed#6, cddc190a-bba2-4bad-bd6f-4d8d07eaa8c0,0,0,0,0, NaN,0.016661555,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null

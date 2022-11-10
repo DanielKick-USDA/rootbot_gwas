@@ -1,0 +1,3 @@
+image, root_name, root, length, vector_length, surface, volume, direction, diameter, root_order, root_ontology, parent_name, parent, insertion_position, insertion_angle, n_child, child_density, first_child, insertion_first_child, last_child, insertion_last_child
+20220423-000800-plate_046_WF9-WW, WF9seed#4, 834af820-bcf3-4378-8afe-b4ab89afe6cf, 1.1034472, 1.0991994, 0.5368459, 0.02111312, 219.62262906349565, 0.11260749, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20220423-000800-plate_046_WF9-WW, WF9seed#2, 19465364-6dfb-44f1-a62f-106b4d318a61, 1.8541548, 1.7501514, 0.3996454, 0.010520296, 237.87185633701588, 0.07651301, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null

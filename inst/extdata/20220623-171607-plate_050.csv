@@ -1,0 +1,11 @@
+image, root_name, root, length, vector_length, surface, volume, direction, diameter, root_order, root_ontology, parent_name, parent, insertion_position, insertion_angle, n_child, child_density, first_child, insertion_first_child, last_child, insertion_last_child
+20220623-171607-plate_050, M37Wseed#5, b158f1a4-8c06-4bad-992e-f90ab28bf37c, 0.0, 0.0, 0.0, 0.0, NaN, 0.046975095, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20220623-171607-plate_050, M37Wseed#4, 08b90386-50f8-4aeb-aaf6-6f20972e0e99, 0.0, 0.0, 0.0, 0.0, NaN, 0.04393183, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20220623-171607-plate_050, M37Wseed#10, 7d62fd4b-5522-4433-b60b-07a08ecd8203, 0.0, 0.0, 0.0, 0.0, NaN, 0.019693758, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20220623-171607-plate_050, M37Wseed#9, 635cb5b2-ac4c-46aa-ad4b-39875d82ae3e, 0.0, 0.0, 0.0, 0.0, NaN, 0.022721991, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20220623-171607-plate_050, M37Wseed#3, ba683708-8cad-4261-ab42-c7d48dda9f88, 0.0, 0.0, 0.0, 0.0, NaN, 0.0136371665, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20220623-171607-plate_050, M37Wseed#2, e6f468f0-d780-42c5-a5d6-ec8c82966f24, 0.0, 0.0, 0.0, 0.0, NaN, 0.043940272, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20220623-171607-plate_050, M37Wseed#6, c6bf74a7-b718-4d3e-adbd-c037f5720308, 0.0, 0.0, 0.0, 0.0, NaN, 0.031816304, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20220623-171607-plate_050, M37Wseed#8, b33b5482-49ed-43d3-886a-cb04f7d6c1da, 0.0, 0.0, 0.0, 0.0, NaN, 0.025758661, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20220623-171607-plate_050, M37Wseed#7, e5d82280-4c66-456e-88c1-e872b98735a2, 0.0, 0.0, 0.0, 0.0, NaN, 0.02575341, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20220623-171607-plate_050, M37Wseed#1, d6080e58-c074-4d4e-9872-93f4e8df2a0d, 0.0, 0.0, 0.0, 0.0, NaN, 0.025758095, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null

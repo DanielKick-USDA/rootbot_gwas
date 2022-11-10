@@ -1,0 +1,11 @@
+image, root_name, root, length, vector_length, surface, volume, direction, diameter, root_order, root_ontology, parent_name, parent, insertion_position, insertion_angle, n_child, child_density, first_child, insertion_first_child, last_child, insertion_last_child
+20220310-185400-plate_021, Oh40Bseed#10, a0e72610-e272-4681-ab6b-58f299e19c24,0,0,0,0, NaN,0.009093343,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220310-185400-plate_021, Oh40Bseed#9, 4639ab25-8def-420b-a8ae-434fa7297c05,0,0,0,0, NaN,0.06969878,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220310-185400-plate_021, Oh40Bseed#8, 21246d50-1947-470f-885b-ab9cc75a8fa5,0.26181197,0.26181197,0.006231658,1.18E-05,257.9678848,0.007576423,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220310-185400-plate_021, Oh40Bseed#7, eb18cf0d-e4aa-4202-ba6a-5e76a5c7e4ec,0,0,0,0, NaN,0.022724828,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220310-185400-plate_021, Oh40Bseed#6, af270993-484b-4abe-b485-a829d8f0646c,0,0,0,0, NaN,0.0772792,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220310-185400-plate_021, Oh40Bseed#5, ad562daa-e78d-45cf-9b84-d2259139d3d6,0,0,0,0, NaN,0.062123645,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220310-185400-plate_021, Oh40Bseed#4, 9e846847-a010-4951-9b61-4c1e57540ecd,0.33829018,0.33817738,0.06916087,0.001337387,267.611101,0.05201909,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220310-185400-plate_021, Oh40Bseed#3, 371f687e-e15f-4c5b-865b-d7abde840b06,0.35246098,0.35246098,0.16689292,0.0070681,286.3030612,0.14166538,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220310-185400-plate_021, Oh40Bseed#2, ea2b9ba4-ca46-40bc-956f-a524615814aa,0.21326384,0.21326384,0.05112988,0.001032078,265.727854,0.07499761,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220310-185400-plate_021, Oh40Bseed#1, 3d37cfeb-7511-426b-bd11-c98c21a18d35,0.32144177,0.32144177,0.048983052,6.03E-04,259.9972979,0.04847942,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null

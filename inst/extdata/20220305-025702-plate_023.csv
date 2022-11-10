@@ -1,0 +1,12 @@
+image, root_name, root, length, vector_length, surface, volume, direction, diameter, root_order, root_ontology, parent_name, parent, insertion_position, insertion_angle, n_child, child_density, first_child, insertion_first_child, last_child, insertion_last_child
+20220305-025702-plate_023, D940Yseed#1, bcb94fec-12a3-4173-b34f-8445b32e2410,4.876457,4.6515965,0.18183826,7.06E-04,95.57178396,0.011687186,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220305-025702-plate_023, B73, 37286444-f161-4bfb-8086-6867f4ff70a8,3.2284267,3.171151,0.05624605,9.69E-05,248.0897647,0.006060323,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220305-025702-plate_023, D940Yseed#7, f2f04912-e274-4ba0-8c0c-76b54f72aafc,2.7160718,2.7100058,0.042393416,6.15E-05,280.8782517,0.005681182,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220305-025702-plate_023, D940Yseed#2, db0d7c88-70c5-41d5-a09a-4fc140f9c9cd,0.3337738,0.3337738,0.014297309,4.95E-05,330.642245,0.013634346,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220305-025702-plate_023, D940Yseed#6, bc3e8ad3-1afa-4fe4-a125-6f82e7132628,0,0,0,0, NaN,0.034844372,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220305-025702-plate_023, D940Yseed#8, 25e3a865-fb42-48fe-8be2-e393d2e16c3a,0,0,0,0, NaN,0.022727177,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220305-025702-plate_023, D940Yseed#9, ea0d2679-aadb-4337-913f-67d4c4dd97fc,0,0,0,0, NaN,0.01364113,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220305-025702-plate_023, D940Yseed#10, a2f09809-2d16-47d5-b483-077410491fcd,0,0,0,0, NaN,0.019695984,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220305-025702-plate_023, D940Yseed#5, 948de2c2-725f-457e-a77e-025e2ef3c374,0,0,0,0, NaN,0.03182333,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220305-025702-plate_023, D940Yseed#4, 3c058d1a-ed58-48e9-8aa1-21beb211d26c,0,0,0,0, NaN,0.022724764,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220305-025702-plate_023, D940Yseed#3, 493f6c6f-99d2-46d3-9161-1a69341fc00c,0,0,0,0, NaN,0.003030303,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null

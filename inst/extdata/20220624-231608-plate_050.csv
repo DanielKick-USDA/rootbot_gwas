@@ -1,0 +1,11 @@
+image, root_name, root, length, vector_length, surface, volume, direction, diameter, root_order, root_ontology, parent_name, parent, insertion_position, insertion_angle, n_child, child_density, first_child, insertion_first_child, last_child, insertion_last_child
+20220624-231608-plate_050, M37Wseed#8, 88151ec6-8841-4be4-9afe-d1f9c4eda30b, 0.0, 0.0, 0.0, 0.0, NaN, 0.04393229, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20220624-231608-plate_050, M37Wseed#2, edd72961-8051-4512-8d20-fd6718a9ea48, 0.0, 0.0, 0.0, 0.0, NaN, 0.031814933, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20220624-231608-plate_050, M37Wseed#1, a77d3aea-d6da-45c5-87fa-89139bf3b4eb, 0.0, 0.0, 0.0, 0.0, NaN, 0.04697167, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20220624-231608-plate_050, M37Wseed#6, 5d85fd8d-96c5-46fe-b423-be08d08ba719, 0.0, 0.0, 0.0, 0.0, NaN, 0.040907074, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20220624-231608-plate_050, M37Wseed#7, 8dd8ddf1-62bb-4777-8dbe-33109dbdfeef, 0.0, 0.0, 0.0, 0.0, NaN, 0.031820394, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20220624-231608-plate_050, M37Wseed#3, ddae35cd-e78d-4f10-8501-f4a63d2e695f, 0.0, 0.0, 0.0, 0.0, NaN, 0.043943487, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20220624-231608-plate_050, M37Wseed#4, 7844f407-915c-4510-9cfd-5391034b0442, 0.0, 0.0, 0.0, 0.0, NaN, 0.040899042, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20220624-231608-plate_050, M37Wseed#9, 97646575-5562-4a40-98f5-fac81400a64e, 0.0, 0.0, 0.0, 0.0, NaN, 0.04394243, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20220624-231608-plate_050, M37Wseed#5, 9eca8883-665b-45b8-b4f1-a64c99876f25, 0.0, 0.0, 0.0, 0.0, NaN, 0.025763718, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20220624-231608-plate_050, M37Wseed#10, 0e26ac1d-9de1-440d-9d5f-11070768f13c, 0.0, 0.0, 0.0, 0.0, NaN, 0.034848236, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null

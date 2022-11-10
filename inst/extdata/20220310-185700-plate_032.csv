@@ -1,0 +1,11 @@
+image, root_name, root, length, vector_length, surface, volume, direction, diameter, root_order, root_ontology, parent_name, parent, insertion_position, insertion_angle, n_child, child_density, first_child, insertion_first_child, last_child, insertion_last_child
+20220310-185700-plate_032, Oh40Bseed#10, 810512e6-0692-4f3b-9cd4-380bc81c1441,0,0,0,0, NaN,0.0484844,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220310-185700-plate_032, Oh40Bseed#9, eb4d0eba-3b2d-4b73-9d71-27ffda5dc46a,0,0,0,0, NaN,0.015155128,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220310-185700-plate_032, Oh40Bseed#8, b2220f83-f00e-4b36-a639-b6cdc09c1d19,0,0,0,0, NaN,0.21668392,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220310-185700-plate_032, Oh40Bseed#7, af960807-f95a-4187-9c60-3db60f76634b,0,0,0,0, NaN,0.09848689,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220310-185700-plate_032, Oh40Bseed#6, 9783ddb4-663d-4df6-9ae7-d13f2c62966f,0,0,0,0, NaN,0.05001023,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220310-185700-plate_032, Oh40Bseed#5, 5c24480d-ba74-40fe-9cea-00fcd9727d2e,0,0,0,0, NaN,0.04090077,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220310-185700-plate_032, Oh40Bseed#4, e0b7b5f6-46f0-43ed-8e35-f36693c9d851,0,0,0,0, NaN,0.012124311,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220310-185700-plate_032, Oh40Bseed#3, 0a16ffa8-b89a-4073-9fd8-81f0ee90c2f5,0.23863775,0.23863775,0.043706246,7.11E-04,295.0969571,0.05757721,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220310-185700-plate_032, Oh40Bseed#2, 676524e2-2d23-4018-8830-ab74f1701799,0,0,0,0, NaN,0.003030466,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220310-185700-plate_032, Oh40Bseed#1, 7c1d1015-ec98-429b-b966-557022b1eea5,0.24541761,0.24541761,0.004088535,5.75E-06,243.3622083,0.005302657,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null

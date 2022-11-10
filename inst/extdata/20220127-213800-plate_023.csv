@@ -1,0 +1,11 @@
+image, root_name, root, length, vector_length, surface, volume, direction, diameter, root_order, root_ontology, parent_name, parent, insertion_position, insertion_angle, n_child, child_density, first_child, insertion_first_child, last_child, insertion_last_child
+20220127-213800-plate_023, Tx303seed#10, 28cb5fd1-60c7-4c0b-b98b-105b132770b4, 0.0, 0.0, 0.0, 0.0, NaN, 0.053032074, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20220127-213800-plate_023, Tx303seed#9, 07c10d4e-e472-4c38-a48d-77ab7b5fe8cf, 0.0, 0.0, 0.0, 0.0, NaN, 0.003030303, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20220127-213800-plate_023, Tx303seed#8, 404f817f-9b67-4c70-9663-a17326ce2e49, 0.0, 0.0, 0.0, 0.0, NaN, 0.0924302, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20220127-213800-plate_023, Tx303seed#7, 5fe554f8-9691-49b7-a450-b4d28e221331, 0.0, 0.0, 0.0, 0.0, NaN, 0.009089865, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20220127-213800-plate_023, Tx303seed#6, ef0aeec3-35ba-4450-b476-88c807f5de7b, 0.0, 0.0, 0.0, 0.0, NaN, 0.08635311, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20220127-213800-plate_023, Tx303seed#5, f0757b50-23c4-4803-9806-12f61a277470, 0.0, 0.0, 0.0, 0.0, NaN, 0.003030303, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20220127-213800-plate_023, Tx303seed#4, 7e0321af-464b-4a75-aa20-052b857e988f, 0.0, 0.0, 0.0, 0.0, NaN, 0.0045434544, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20220127-213800-plate_023, Tx303seed#3, 0056de01-4d54-4c34-b455-d49e146c589a, 0.0, 0.0, 0.0, 0.0, NaN, 0.021217331, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20220127-213800-plate_023, Tx303seed#2, 84ce1c24-6f44-4477-b656-31ce41868a0c, 0.0, 0.0, 0.0, 0.0, NaN, 0.0075756307, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20220127-213800-plate_023, Tx303seed#1, d43e30ee-5a22-4103-82fa-3c96d0ad8ada, 0.0, 0.0, 0.0, 0.0, NaN, 0.06211893, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null

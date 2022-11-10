@@ -1,0 +1,11 @@
+image, root_name, root, length, vector_length, surface, volume, direction, diameter, root_order, root_ontology, parent_name, parent, insertion_position, insertion_angle, n_child, child_density, first_child, insertion_first_child, last_child, insertion_last_child
+20220623-172259-plate_045, M37Wseed#5, 8fa47b49-6bb5-41e6-9c6c-a48a488cc1b3, 0.0, 0.0, 0.0, 0.0, NaN, 0.046956856, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20220623-172259-plate_045, M37Wseed#10, 68859a47-b688-440d-9d6e-37f461b48c77, 0.0, 0.0, 0.0, 0.0, NaN, 0.028788695, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20220623-172259-plate_045, M37Wseed#9, 442799ee-0387-4d87-9d72-caebe55e01e8, 0.0, 0.0, 0.0, 0.0, NaN, 0.03182363, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20220623-172259-plate_045, M37Wseed#4, 1df63d94-d2f6-4825-92ff-c3ee6295bf11, 0.0, 0.0, 0.0, 0.0, NaN, 0.028794907, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20220623-172259-plate_045, M37Wseed#3, 7777b078-98a9-42ac-b973-0be37f8f6d38, 0.0, 0.0, 0.0, 0.0, NaN, 0.019696623, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20220623-172259-plate_045, M37Wseed#6, d4adf035-01bd-45b8-8a25-c18f9a3f4deb, 0.0, 0.0, 0.0, 0.0, NaN, 0.028787829, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20220623-172259-plate_045, M37Wseed#1, 9b522ca1-c3d8-4407-9e06-baa41146a5ae, 0.0, 0.0, 0.0, 0.0, NaN, 0.043936897, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20220623-172259-plate_045, M37Wseed#2, b990e267-aa77-42a7-b30a-a3b0568c4a33, 0.0, 0.0, 0.0, 0.0, NaN, 0.034847587, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20220623-172259-plate_045, M37Wseed#8, ca4d1861-c8ee-4bd7-9901-312d3b835f81, 0.0, 0.0, 0.0, 0.0, NaN, 0.02576009, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20220623-172259-plate_045, M37Wseed#7, 1867d7e8-9036-4708-8851-c0760b78537d, 0.0, 0.0, 0.0, 0.0, NaN, 0.046968486, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null

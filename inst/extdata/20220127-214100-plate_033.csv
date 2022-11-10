@@ -1,0 +1,11 @@
+image, root_name, root, length, vector_length, surface, volume, direction, diameter, root_order, root_ontology, parent_name, parent, insertion_position, insertion_angle, n_child, child_density, first_child, insertion_first_child, last_child, insertion_last_child
+20220127-214100-plate_033, Tx303seed#10, 246a5175-fd19-4ec6-b9f4-36a646a2f435,0,0,0,0, NaN,0.016671572,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220127-214100-plate_033, Tx303seed#9, 94036cad-4f7f-4e50-a04a-556a79950f10,0,0,0,0, NaN,0.054551885,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220127-214100-plate_033, Tx303seed#8, 9b351dda-08e1-4eb1-af90-ff7f78e21d10,0,0,0,0, NaN,0.10301364,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220127-214100-plate_033, Tx303seed#7, 3c4a89f6-77e0-4dca-96b4-f6143f55d6dc,0,0,0,0, NaN,0.046968043,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220127-214100-plate_033, Tx303seed#6, f8118784-d875-46e8-8a18-ad5118e2e580,0,0,0,0, NaN,0.086359784,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220127-214100-plate_033, Tx303seed#5, 7bed3045-c93d-4bc5-b11b-803f6ccf6212,0,0,0,0, NaN,0.072735615,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220127-214100-plate_033, Tx303seed#4, c67f775c-e4d0-4f25-a287-d0cf8d9a6ad2,0,0,0,0, NaN,0.0954395,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220127-214100-plate_033, Tx303seed#3, bc99a97c-dbb0-417e-b6a2-4189dad4db43,0,0,0,0, NaN,0.14852132,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220127-214100-plate_033, Tx303seed#2, 6f104b3c-c0e9-404f-bb1b-7ae170bc95db,0,0,0,0, NaN,0.003030303,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220127-214100-plate_033, Tx303seed#1, 96bd9620-6829-4971-8172-601b519e9009,0,0,0,0, NaN,0.11968322,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null

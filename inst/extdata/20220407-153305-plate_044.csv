@@ -1,0 +1,11 @@
+image, root_name, root, length, vector_length, surface, volume, direction, diameter, root_order, root_ontology, parent_name, parent, insertion_position, insertion_angle, n_child, child_density, first_child, insertion_first_child, last_child, insertion_last_child
+20220407-153305-plate_044, CI64seed#10, 55e0723f-54a0-4d20-ac82-145e2ce113d7,0,0,0,0, NaN,0.007577115,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220407-153305-plate_044, CI64seed#9, 2d2fe423-1475-41b8-9ffc-6d9a8f470781,0.16336039,0.16336039,0.008560141,3.72E-05,291.939224,0.01666808,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220407-153305-plate_044, CI64seed#8, 51a7363d-5ef4-4767-8ea3-6a0e6729adbc,0,0,0,0, NaN,0.013634889,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220407-153305-plate_044, CI64seed#7, 96b5a29d-8138-4bb3-92b0-5dabf73828ae,0.19317792,0.19317792,0.019775273,1.62E-04,299.7718664,0.032578547,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220407-153305-plate_044, CI64seed#6, 7c6886b5-f1ae-4aed-8f80-e7ba3680eca2,0,0,0,0, NaN,0.07121281,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220407-153305-plate_044, CI64seed#5, 4e7d2b30-898d-4d87-8adf-beb80154861b,0,0,0,0, NaN,0.09392421,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220407-153305-plate_044, CI64seed#4, b65388fb-8337-4007-ac4a-2bb5070c252b,0.27672672,0.27672672,0.03654116,4.77E-04,285.6947372,0.041659087,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220407-153305-plate_044, CI64seed#3, a49ce852-c175-4ec1-8f9e-ec9e7850dde9,0.14533816,0.14533816,0.003112922,5.33E-06,295.2197912,0.00681762,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220407-153305-plate_044, CI64seed#2, 39848399-65fd-48b1-85c9-1df890566673,0.34188244,0.34188244,0.044203203,5.78E-04,304.8326814,0.040905178,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220407-153305-plate_044, CI64seed#1, eedd4d2c-c4e6-4891-a610-f3d1016de537,0.433809,0.433809,0.10303218,0.002263473,298.8289451,0.074993625,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null

@@ -1,0 +1,11 @@
+image, root_name, root, length, vector_length, surface, volume, direction, diameter, root_order, root_ontology, parent_name, parent, insertion_position, insertion_angle, n_child, child_density, first_child, insertion_first_child, last_child, insertion_last_child
+20210910-212659-plate_024, CML91seed#10, 7546e4f9-4ed9-4a9f-ada5-73d557f8f33a, 0.0, 0.0, 0.0, 0.0, 270.884592143032, 0.0, 0, Primary root, -1, -1, -0.0, -57.29577951308232, 0, 0.0, null, null, null, null
+20210910-212659-plate_024, CML91seed#9, f0cbbd2a-ea37-42d4-89bd-14fc5863eb0c, 0.0, 0.0, 0.0, 0.0, 259.5936337468406, 0.0, 0, Primary root, -1, -1, -0.0, -57.29577951308232, 0, 0.0, null, null, null, null
+20210910-212659-plate_024, CML91seed#8, abe3ab60-aa42-4581-b13d-1975b1df4394, 0.0, 0.0, 0.0, 0.0, 287.59418549460463, 0.0, 0, Primary root, -1, -1, -0.0, -57.29577951308232, 0, 0.0, null, null, null, null
+20210910-212659-plate_024, CML91seed#7, fb1be85b-2b6a-452e-b436-10d2e69d9e4a, 0.0, 0.0, 0.0, 0.0, 260.8059376830045, 0.0, 0, Primary root, -1, -1, -0.0, -57.29577951308232, 0, 0.0, null, null, null, null
+20210910-212659-plate_024, CML91seed#6, dfcf94e5-c784-4896-b300-e0fe842f35c3, 0.0, 0.0, 0.0, 0.0, 272.0667066430645, 0.0, 0, Primary root, -1, -1, -0.0, -57.29577951308232, 0, 0.0, null, null, null, null
+20210910-212659-plate_024, CML91seed#5, c6663234-9fe1-4274-85a8-914d1b7ec266, 0.0, 0.0, 0.0, 0.0, 282.26262179076275, 0.0, 0, Primary root, -1, -1, -0.0, -57.29577951308232, 0, 0.0, null, null, null, null
+20210910-212659-plate_024, CML91seed#4, 5f006312-9e97-4bf7-a09b-d1fe84a82a6d, 0.0, 0.0, 0.0, 0.0, 262.92523609943277, 0.0, 0, Primary root, -1, -1, -0.0, -57.29577951308232, 0, 0.0, null, null, null, null
+20210910-212659-plate_024, CML91seed#3, 544de225-0e6f-4a8f-ac6f-7ac83d619742, 0.0, 0.0, 0.0, 0.0, 274.30673548326183, 0.0, 0, Primary root, -1, -1, -0.0, -57.29577951308232, 0, 0.0, null, null, null, null
+20210910-212659-plate_024, CML91seed#2, 185e8370-dcab-4080-9dca-6ba9c1bb5f4c, 0.0, 0.0, 0.0, 0.0, 270.48434305766926, 0.0, 0, Primary root, -1, -1, -0.0, -57.29577951308232, 0, 0.0, null, null, null, null
+20210910-212659-plate_024, CML91seed#1, 79037e2d-a5b6-40ae-b2f7-37b6d045f4a7, 0.0, 0.0, 0.0, 0.0, 254.227973738662, 0.0, 0, Primary root, -1, -1, -0.0, -57.29577951308232, 0, 0.0, null, null, null, null

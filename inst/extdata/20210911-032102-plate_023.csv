@@ -1,0 +1,11 @@
+image, root_name, root, length, vector_length, surface, volume, direction, diameter, root_order, root_ontology, parent_name, parent, insertion_position, insertion_angle, n_child, child_density, first_child, insertion_first_child, last_child, insertion_last_child
+20210911-032102-plate_023, H105Wseed#10, c6be422d-1b03-4c29-8ab5-7789a9f486bd, 0.0, 0.0, 0.0, 0.0, NaN, 0.0, 0, Primary root, -1, -1, -0.0, -57.29577951308232, 0, 0.0, null, null, null, null
+20210911-032102-plate_023, H105Wseed#9, 2ae33895-458d-4b06-8c6c-3d5703f8726f, 0.0, 0.0, 0.0, 0.0, NaN, 0.0, 0, Primary root, -1, -1, -0.0, -57.29577951308232, 0, 0.0, null, null, null, null
+20210911-032102-plate_023, H105Wseed#8, dc55424e-9749-4091-a124-85f250294957, 0.0, 0.0, 0.0, 0.0, 303.46623372939365, 0.0, 0, Primary root, -1, -1, -0.0, -57.29577951308232, 0, 0.0, null, null, null, null
+20210911-032102-plate_023, H105Wseed#7, b5a3c5e2-8381-48bc-a058-db54cba1f6e5, 0.0, 0.0, 0.0, 0.0, NaN, 0.0, 0, Primary root, -1, -1, -0.0, -57.29577951308232, 0, 0.0, null, null, null, null
+20210911-032102-plate_023, H105Wseed#6, b8807e08-f6f7-4135-996a-f63f099c3a67, 0.0, 0.0, 0.0, 0.0, NaN, 0.0, 0, Primary root, -1, -1, -0.0, -57.29577951308232, 0, 0.0, null, null, null, null
+20210911-032102-plate_023, H105Wseed#5, 64d09d3a-cafe-4e46-833c-47d36ad496c5, 0.0, 0.0, 0.0, 0.0, NaN, 0.0, 0, Primary root, -1, -1, -0.0, -57.29577951308232, 0, 0.0, null, null, null, null
+20210911-032102-plate_023, H105Wseed#4, b481d07b-e2eb-46aa-9fc3-158443231c77, 0.0, 0.0, 0.0, 0.0, 280.5316879305414, 0.0, 0, Primary root, -1, -1, -0.0, -57.29577951308232, 0, 0.0, null, null, null, null
+20210911-032102-plate_023, H105Wseed#3, feecd379-f2b7-4672-a4ed-2e82de74318b, 0.0, 0.0, 0.0, 0.0, 293.11991781617166, 0.0, 0, Primary root, -1, -1, -0.0, -57.29577951308232, 0, 0.0, null, null, null, null
+20210911-032102-plate_023, H105Wseed#2, 5d95f2d3-6e7b-404a-baef-5769f3516064, 0.0, 0.0, 0.0, 0.0, 306.3319352183209, 0.0, 0, Primary root, -1, -1, -0.0, -57.29577951308232, 0, 0.0, null, null, null, null
+20210911-032102-plate_023, H105Wseed#1, 07156534-603c-4d20-a3d4-b64c6f5ec795, 0.0, 0.0, 0.0, 0.0, 228.93485433637767, 0.0, 0, Primary root, -1, -1, -0.0, -57.29577951308232, 0, 0.0, null, null, null, null

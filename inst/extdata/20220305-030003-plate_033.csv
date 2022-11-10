@@ -1,0 +1,11 @@
+image, root_name, root, length, vector_length, surface, volume, direction, diameter, root_order, root_ontology, parent_name, parent, insertion_position, insertion_angle, n_child, child_density, first_child, insertion_first_child, last_child, insertion_last_child
+20220305-030003-plate_033, D940Yseed#5, e0550431-6e0d-4406-99e9-f316a303275c,0,0,0,0, NaN,0.050004542,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220305-030003-plate_033, D940Yseed#3, c670fc1c-6f73-480a-b70c-36e51dbc822f,1.9638327,1.9620363,0.073679686,2.71E-04,262.4449372,0.012119068,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220305-030003-plate_033, D940Yseed#2, 3b9615cf-5562-478b-8185-6711a67364f8,0.6303152,0.4490578,0.014229449,3.72E-05,264.9953298,0.00696981,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220305-030003-plate_033, D940Yseed#1, 36fab2d2-7bc8-4233-ac0b-259e2f3fc290,2.997206,2.966368,0.06741517,1.38E-04,271.8583039,0.007828853,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220305-030003-plate_033, D940Yseed#6, 2a86cabc-7822-4a4e-81a6-7e3ae1e1a1af,0,0,0,0, NaN,0.013634653,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220305-030003-plate_033, D940Yseed#8, e5089461-23e6-4289-a86a-6de37dd28389,0,0,0,0, NaN,0.025757618,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220305-030003-plate_033, D940Yseed#7, 93568331-6ab4-40f9-b099-df101a8ede9d,0,0,0,0, NaN,0.019701667,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220305-030003-plate_033, D940Yseed#9, 3c84121b-f358-44bd-9c60-35f3d62462da,0,0,0,0, NaN,0.007577251,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220305-030003-plate_033, D940Yseed#10, 65fd2bac-36a6-416e-b155-dfc51b2dc9cc,0,0,0,0, NaN,0.013641628,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
+20220305-030003-plate_033, D940Yseed#4, 37defe96-a2f2-4e61-9a2c-790732c76c9e,0,0,0,0, NaN,0.019696668,0, Primary root,-1,-1,-0.003030303,-57.29577951,0,0, null, null, null, null
