@@ -447,7 +447,6 @@ plts <- purrr::map(#list_idxs,
 library(cowplot)
 cowplot::plot_grid(plotlist = plts)
 
-# end 11/14/2022
 
 ```
 
@@ -456,21 +455,13 @@ cowplot::plot_grid(plotlist = plts)
 
 
 ```{r}
-geno <- "CML91"
+# we could also consider a
+
+fm <- lm("length ~ delta_datetime*condition*inbred", data)
+res <- broom::tidy(fm)
 
 
-
-data %>% 
-  filter(inbred == geno) %>% 
-  mutate(delta_datetime = delta_datetime/(60*60)) %>% # rescale from seconds to hours
-  ggplot(aes(delta_datetime, length, color = condition))+
-  geom_point()+
-  geom_smooth(method = "lm", aes(fill = condition), alpha = 0.3)+
-  # facet_grid(.~condition)
-  labs(x = "Hours Elapsed", y = "Root Length (mm)", title = paste0("Genotype: ", geno))
-
-
-
+# end 11/14/2022
 ```
 
 
