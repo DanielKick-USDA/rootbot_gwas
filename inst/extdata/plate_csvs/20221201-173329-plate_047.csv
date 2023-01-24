@@ -1,0 +1,11 @@
+image, root_name, root, length, vector_length, surface, volume, direction, diameter, root_order, root_ontology, parent_name, parent, insertion_position, insertion_angle, n_child, child_density, first_child, insertion_first_child, last_child, insertion_last_child
+20221201-173329-plate_047, IL14Hseed#5, 92d91db3-57f5-43fe-a6bb-cc73dfecd3e4, 0.0, 0.0, 0.0, 0.0, NaN, 0.05607722, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20221201-173329-plate_047, IL14Hseed#10, 5f3d2218-6c61-443e-936c-fa66b329a705, 0.0, 0.0, 0.0, 0.0, NaN, 0.046967495, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20221201-173329-plate_047, IL14Hseed#8, 9e8d9d3b-d022-44cb-920b-de8ff4fbd25b, 0.0, 0.0, 0.0, 0.0, NaN, 0.07119924, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20221201-173329-plate_047, IL14Hseed#7, 6e77c2e6-3ce2-4d71-be17-c529a95a06fe, 0.0, 0.0, 0.0, 0.0, NaN, 0.037871893, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20221201-173329-plate_047, IL14Hseed#6, 9cd395b2-344c-45fb-a05c-7b16de024d75, 0.0, 0.0, 0.0, 0.0, NaN, 0.003030303, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20221201-173329-plate_047, IL14Hseed#9, 5d70e286-2048-449f-899f-70e2037aa73f, 0.0, 0.0, 0.0, 0.0, NaN, 0.028782783, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20221201-173329-plate_047, IL14Hseed#4, 37c219ef-7b49-4b79-a38e-b864d7235d17, 0.0, 0.0, 0.0, 0.0, NaN, 0.01969382, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20221201-173329-plate_047, IL14Hseed#3, ca521587-935f-40c7-8e18-70206b0e0599, 0.0, 0.0, 0.0, 0.0, NaN, 0.004546493, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20221201-173329-plate_047, IL14Hseed#2, 3af4efa1-2803-4479-b5c5-47fc7d1f7b1a, 0.0, 0.0, 0.0, 0.0, NaN, 0.0045453277, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20221201-173329-plate_047, IL14Hseed#1, 2ad0c78f-ebde-43e7-9085-f11d5a827e2f, 0.0, 0.0, 0.0, 0.0, NaN, 0.004545526, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null

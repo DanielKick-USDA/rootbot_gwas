@@ -1,0 +1,11 @@
+image, root_name, root, length, vector_length, surface, volume, direction, diameter, root_order, root_ontology, parent_name, parent, insertion_position, insertion_angle, n_child, child_density, first_child, insertion_first_child, last_child, insertion_last_child
+20221117-175101-plate_047, TZ18seed#10, 5980a44b-cc1b-4499-bb78-8753418cae68, 0.0, 0.0, 0.0, 0.0, NaN, 0.003030303, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20221117-175101-plate_047, TZ18seed#9, e42034ee-9b45-4ebe-ad5a-bee7de3c4759, 0.0, 0.0, 0.0, 0.0, NaN, 0.046968043, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20221117-175101-plate_047, TZ18seed#8, b0e7c2ff-f6c0-4c34-b142-d6e63ebec6fb, 0.0, 0.0, 0.0, 0.0, NaN, 0.016667545, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20221117-175101-plate_047, TZ18seed#7, 06e579f0-648c-4c11-bebc-2ecec5c1c26a, 0.0, 0.0, 0.0, 0.0, NaN, 0.08634967, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20221117-175101-plate_047, TZ18seed#6, 0e658b7e-6ac7-419d-b290-04d85c003523, 0.0, 0.0, 0.0, 0.0, NaN, 0.0045453785, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20221117-175101-plate_047, TZ18seed#5, 21a02497-232a-43a1-a2fc-259074a067c9, 0.0, 0.0, 0.0, 0.0, NaN, 0.003030303, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20221117-175101-plate_047, TZ18seed#4, 12fbd06c-fdb0-4ffd-b37d-214fe22e387f, 0.0, 0.0, 0.0, 0.0, NaN, 0.07123094, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20221117-175101-plate_047, TZ18seed#3, 48d85a77-359b-4d8e-93fe-d40a33527457, 0.0, 0.0, 0.0, 0.0, NaN, 0.028786285, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20221117-175101-plate_047, TZ18seed#2, b56dbf3c-4a2a-45f8-a437-7d0b04777799, 0.0, 0.0, 0.0, 0.0, NaN, 0.028789459, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20221117-175101-plate_047, TZ18seed#1, df57abf1-a048-4906-8930-3a9f06e13a38, 0.38448417, 0.37887272, 0.028101824, 2.04953E-4, 264.4372760571335, 0.026768299, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
