@@ -188,15 +188,13 @@ df <- df[(
 ```
 
 ```{r}
-# uid_code <- 303 # 
-
 for(uid_code in unique(metadata$uid)){
   exp_days_threshold = "4 days"
-  # print(uid_code)
   match_inbred   <- metadata[metadata$uid == uid_code, "inbred"][[1]]
   match_cassette <- metadata[metadata$uid == uid_code, "cassette"][[1]]
-  fuzzy_date     <- metadata[metadata$uid == uid_code, "rootbot_date"][[1]] # select first index because it's a tibble
-
+  # select first index because it's a tibble
+  fuzzy_date     <- metadata[metadata$uid == uid_code, "rootbot_date"][[1]] 
+  
   mask <- (df$genotype == match_inbred
       ) & (df$image_cassette == match_cassette
       ) & (difftime(fuzzy_date,
@@ -210,13 +208,11 @@ for(uid_code in unique(metadata$uid)){
   }
 }
 
-
 # now use the uid as a grouping to find the time relative to first image
 df <- df %>% 
   group_by(uid) %>% 
   mutate(min_datetime = min(image_datetime)) %>% 
   mutate(delta_datetime = image_datetime - min_datetime)
-
 
 df
 ```
@@ -225,7 +221,7 @@ df
 
 ```{r}
 data <- left_join(metadata, df) %>% filter(!is.na(length))
-
+data$hours_elapsed <- as.numeric((data$delta_datetime) / (60*60))
 data 
 ```
 
