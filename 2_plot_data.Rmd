@@ -16,15 +16,23 @@ records
 ```
 
 ```{r}
-library(tidyverse)
-# cleaning & QC
-library(janitor)
-library(broom)
-library(cowplot)
-library(ggh4x)
-library(ggsignif)  
-library("PNWColors")
-library('agricolae')
+for(library_name in c(
+  'tidyverse',
+  'janitor',
+  'broom',
+  'cowplot',
+  'ggh4x',
+  'ggsignif',  
+  'PNWColors',
+  'agricolae'
+  )){
+  if(FALSE == require(library_name)){
+    print(paste0("installing '", library_name, "'"))
+    install.packages(library_name)
+  }
+  library(library_name)
+}
+
 ```
 
 ## Load in metadata
