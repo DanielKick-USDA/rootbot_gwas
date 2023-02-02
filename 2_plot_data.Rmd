@@ -19,6 +19,12 @@ records
 library(tidyverse)
 # cleaning & QC
 library(janitor)
+library(broom)
+library(cowplot)
+library(ggh4x)
+library(ggsignif)  
+library("PNWColors")
+library('agricolae')
 ```
 
 ## Load in metadata
@@ -164,20 +170,6 @@ write.csv(
 ```
 
 
-
-```{r}
-#TODO retain additional ys
-# df <- df[, c(
-#   "length",        # y
-#   "genotype",      # Genotype
-#   # "time_elapsed",  # Time
-#   # "group",         # Well watered or Water Stressed
-#   "replicate",     # seed within UID
-#   # "uid",           # UID of plate x batch
-#   "image"
-# )]
-```
-
 ## tidy up metadata
 
 ```{r}
@@ -229,15 +221,6 @@ df["image_date"] <- stringr::str_extract(df$image, "\\d+") %>% lubridate::ymd()
 df["image_datetime"] <- stringr::str_extract(df$image, "\\d+-\\d+") %>% lubridate::ymd_hms()
 
 df["image_cassette"] <- stringr::str_extract(df$image, "\\d+$") %>% as.integer()
-
-
-# df["uid"] <- NA
-
-# must contain non-missing values for these entries:
-# df <- df[(
-#   (!is.na(df$genotype)) &
-#   (!is.na(df$image_cassette)) &
-#   (!is.na(df$image_date))),]
 ```
 
 
@@ -276,11 +259,7 @@ data <- data[(data$in_meta & data$in_df), ] %>% select(-in_df, -in_meta)
 
 
 ```{r}
-ggplot(data, aes(x = rootbot_date))+
-  geom_density()+
-  geom_point(aes(y=0))+
-  theme_minimal()
-
+# Group experiments by time
 hours_threshold = 36
 
 
@@ -318,7 +297,7 @@ data <- full_join(data, temp)
 ```
 
 ```{r}
-#TODO apply time adjustments
+# apply time adjustments
 # use Earliest_scored_plate column in log file
 # todo anything without col starting at *** assume 6, 36
 data[is.na(data$earliest_scored_plate), "earliest_scored_plate"] <- 0
@@ -329,68 +308,7 @@ data
 ```
 
 
-```{r}
-# uid_code = 143
-# There are values from the early data that aren't properly being processed:
-# they are not receiving an uid 
-
-# ── Variable type: numeric ─────────────────────────────────────────────────────────────────
-#   skim_variable  n_missing complete_rate   mean     sd p0     p25     p50    p75 p100 hist 
-# 1 length                 0         1       1.59   4.09  0   0.221   0.796   2.02 110. ▇▁▁▁▁
-# 2 image_cassette         0         1      28.8   14.0   2  22      27      41     53  ▅▃▇▆▆
-# 3 uid                  643         0.923 220.   125.    1 111     215     333    430  ▇▇▇▇▇
-
-# temp <- df[is.na(df$uid), ] %>% select(genotype, image_cassette, image) %>% distinct() # %>% summarise(image == sort(image)[1])
-# temp
-# 
-# 
-# 
-# for(uid_code in unique(metadata$uid)){
-#   exp_days_threshold = "4 days"
-#   match_inbred   <- metadata[metadata$uid == uid_code, "inbred"][[1]]
-#   match_cassette <- metadata[metadata$uid == uid_code, "cassette"][[1]]
-#   # select first index because it's a tibble
-#   fuzzy_date     <- metadata[metadata$uid == uid_code, "rootbot_date"][[1]] 
-#   
-#   mask <- (df$genotype == match_inbred
-#       ) & (df$image_cassette == match_cassette
-#       ) & (difftime(fuzzy_date,
-#                     df$image_date,
-#                     units = 'days') < exp_days_threshold
-#       ) & (!is.na(df$genotype))
-#   df[mask, ]
-#   
-#   
-#   # if there are matches
-#   if(mean(mask) > 0){
-#     df[mask, "uid"] <- uid_code
-#   }
-# }
-# 
-# # now use the uid as a grouping to find the time relative to first image
-# df <- df %>% 
-#   group_by(uid) %>% 
-#   mutate(min_datetime = min(image_datetime)) %>% 
-#   mutate(delta_datetime = image_datetime - min_datetime) %>% 
-#   ungroup()
-# 
-# df[is.na(df$uid), ]
-
-
-```
-
-
-
-
-
 ## merge
-
-```{r}
-# data <- left_join(metadata, df) %>% filter(!is.na(length))
-# data$hours_elapsed <- as.numeric((data$delta_datetime) / (60*60))
-# data 
-```
-
 ```{r}
 # quick confirmation that the merge worked as expected
 ggplot(data, aes(x = rootbot_date))+geom_density()+geom_point(aes(y=0))+theme_minimal()
@@ -413,8 +331,7 @@ data %>%
 
 ```{r}
 # where ws is longer than ww
-# slope or abs?\
-library(broom)
+# slope or abs?
 
 
 M <- data %>% 
@@ -516,7 +433,7 @@ plts <- purrr::map(list_idxs,
   ggsci::scale_fill_lancet()
 })
 
-library(cowplot)
+
 cowplot::plot_grid(plotlist = plts)
 
 
@@ -537,12 +454,6 @@ res <- broom::tidy(fm)
 ![Example of Genotype Plot](reports/figures/33-16.png)
 
 ```{r eval=FALSE}
-library(ggh4x)
-library(ggsignif)  
-library("PNWColors")
-library('agricolae')
-
-
 
 for(current_genotype in unique(data$genotype)){
 
