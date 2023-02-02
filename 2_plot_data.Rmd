@@ -26,12 +26,11 @@ for(library_name in c(
   'PNWColors',
   'agricolae'
   )){
-  if(FALSE == bquote(require(.(library_name)))){
+  if(FALSE == require(library_name, character.only = TRUE)){
     print(paste0("installing '", library_name, "'"))
     install.packages(library_name)
   } 
-  # see https://www.mitchelloharawild.com/blog/loading-r-packages-in-a-loop/
-  bquote(library(.(library_name))) 
+  library(library_name, character.only = TRUE) 
 }
 ```
 
@@ -312,7 +311,34 @@ data[is.na(data$earliest_scored_plate), "earliest_scored_plate"] <- 0
 data$hours_elapsed <- data$hours_elapsed + data$earliest_scored_plate
 
 data
+write.csv(data, './data.csv')
+```
 
+
+```{r}
+data_summary_stats <- data %>% 
+  select(length, inbred, condition, hours_elapsed) %>% 
+  group_by(inbred, condition, hours_elapsed) %>% 
+  summarise(min = min(   length, na.rm = TRUE),
+            med = median(length, na.rm = TRUE),
+            mean= mean(  length, na.rm = TRUE),
+            max = max(   length, na.rm = TRUE),
+            sd  = sd(    length, na.rm = TRUE),
+            iqr = IQR(   length, na.rm = TRUE),
+            )
+write.csv(data_summary_stats, './data_summary_stats.csv')
+
+# TODO replace with a more robust model (rank deficient) 
+fm <- lm("length ~ hours_elapsed*condition*inbred", data)
+res <- broom::tidy(fm)
+res
+# set up prediction df
+temp <- data %>% select(inbred, condition) %>% distinct()
+temp <- rbind(mutate(temp, hours_elapsed = 6),
+              mutate(temp, hours_elapsed = 36))
+temp['length_yHat'] <- predict(fm, temp)
+
+write.csv(temp, './data_summary_preds.csv')
 ```
 
 
@@ -463,9 +489,9 @@ res <- broom::tidy(fm)
 
 ```{r eval=FALSE}
 
-for(current_genotype in unique(data$genotype)){
+for(current_inbred in unique(data$inbred)){
 
-  temp <- data[data$genotype == current_genotype, ]
+  temp <- data[data$inbred == current_inbred, ]
   
   # tweak group ordering for plotting
   temp$condition <- factor(temp$condition, c('ww', 'ws'))
@@ -528,7 +554,7 @@ for(current_genotype in unique(data$genotype)){
     scale_x_discrete(guide = "axis_nested")+
     xlab("")+
     ylab("Length (mm)")+
-    labs(title = paste('Genotype: ', current_genotype))+
+    labs(title = paste('inbred: ', current_inbred))+
     ggthemes::theme_clean()+
     ggthemes::scale_fill_few()+
     theme(legend.position = 'bottom')
@@ -572,7 +598,7 @@ for(current_genotype in unique(data$genotype)){
       }
     }    
   }
-  ggsave(paste0('./reports/figures/',current_genotype,'.tiff'), fig)
-  ggsave(paste0('./reports/figures/',current_genotype,'.png'), fig)
+  ggsave(paste0('./reports/figures/',current_inbred,'.tiff'), fig)
+  ggsave(paste0('./reports/figures/',current_inbred,'.png'), fig)
 }
 ```
