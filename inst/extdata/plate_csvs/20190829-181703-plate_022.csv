@@ -1,0 +1,12 @@
+image, root_name, root, length, vector_length, surface, volume, direction, diameter, root_order, root_ontology, parent_name, parent, insertion_position, insertion_angle, n_child, child_density, first_child, insertion_first_child, last_child, insertion_last_child
+20190829-181703-plate_022, A635seed #10, 27e88fda-f64f-48a8-a504-4f1a4b967e67, 0.0, 0.0, 0.0, 0.0, NaN, 0.32435286, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20190829-181703-plate_022, A635seed #9, b6d02d40-ae76-48ab-b0ed-6d3e301485a4, 0.0, 0.0, 0.0, 0.0, NaN, 0.23332694, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20190829-181703-plate_022, A635seed #8, 3168d763-b1b4-47c3-8f40-9667c938c6da, 0.0, 0.0, 0.0, 0.0, NaN, 0.08486485, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20190829-181703-plate_022, A635seed #7, 8bd864bc-c6d4-439d-a5fa-68a5d3ff164c, 0.0, 0.0, 0.0, 0.0, NaN, 0.21363007, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20190829-181703-plate_022, A635seed #6, 73cfa547-9715-45dc-85a1-b6d3d5dd1ec2, 0.0, 0.0, 0.0, 0.0, NaN, 0.21666731, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20190829-181703-plate_022, A635seed #5, 37f7704c-6236-4d51-9e3d-eea1a12bbe48, 0.0, 0.0, 0.0, 0.0, NaN, 0.077266105, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20190829-181703-plate_022, A635seed #4, b3f66e94-2287-4a02-9fe7-23feeda7a65a, 0.0, 0.0, 0.0, 0.0, NaN, 0.045454416, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20190829-181703-plate_022, A635seed #3, df12532e-3fd9-40da-9044-288fe5700cb9, 0.0, 0.0, 0.0, 0.0, NaN, 0.19853468, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20190829-181703-plate_022, A635seed #2, 2faf46cb-8baa-44f0-817e-dc465678220f, 0.0, 0.0, 0.0, 0.0, NaN, 0.009090779, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20190829-181703-plate_022, A635seed #1, f8d7ed49-b5b7-4937-a65e-791b239012dc, 0.31946152, 0.31946152, 0.08362989, 0.0017421865, 263.64576641535575, 0.08332841, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20190829-181703-plate_022, B73wwA635, 27a5ff50-1abd-4927-8faa-506dfecc28c6, 0.0, 0.0, 0.0, 0.0, NaN, 0.1742494, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null

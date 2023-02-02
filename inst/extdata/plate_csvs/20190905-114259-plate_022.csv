@@ -1,0 +1,12 @@
+image, root_name, root, length, vector_length, surface, volume, direction, diameter, root_order, root_ontology, parent_name, parent, insertion_position, insertion_angle, n_child, child_density, first_child, insertion_first_child, last_child, insertion_last_child
+20190905-114259-plate_022, CML322seed #10, b9790949-f5d6-4b38-95fc-4368b62f62f9, 0.0, 0.0, 0.0, 0.0, NaN, 0.20302403, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20190905-114259-plate_022, CML322seed #9, f564f23f-b1e7-41cc-9c0b-9312ef661536, 0.0, 0.0, 0.0, 0.0, NaN, 0.092403986, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20190905-114259-plate_022, CML322seed #8, 5002dc23-c5c4-4bf5-80f3-933545799516, 0.0, 0.0, 0.0, 0.0, NaN, 0.16969289, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20190905-114259-plate_022, CML322seed #7, e10553aa-6653-4d69-8741-9f86c4adad32, 0.0, 0.0, 0.0, 0.0, NaN, 0.16060123, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20190905-114259-plate_022, CML322seed #6, de032e3e-e800-4816-9443-b955007df251, 0.0, 0.0, 0.0, 0.0, NaN, 0.078789786, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20190905-114259-plate_022, CML322seed #5, 7c9668a7-2d2b-444c-a12a-5971a4535df5, 0.0, 0.0, 0.0, 0.0, NaN, 0.031812377, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20190905-114259-plate_022, CML322seed #4, 4970c33f-d40b-4826-89e8-baeee1109cc2, 0.0, 0.0, 0.0, 0.0, NaN, 0.112130955, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20190905-114259-plate_022, CML322seed #3, aeadb5a6-2fc6-4b43-8ec9-5c567a7118ee, 0.0, 0.0, 0.0, 0.0, NaN, 0.29848137, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20190905-114259-plate_022, CML322seed #2, 7fe61ffa-a279-4fb5-a337-562d033b4cc5, 0.0, 0.0, 0.0, 0.0, NaN, 0.23936644, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20190905-114259-plate_022, CML322seed #1, 6d7d4818-214e-494b-8972-414f4bb68173, 0.0, 0.0, 0.0, 0.0, NaN, 0.20151018, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null
+20190905-114259-plate_022, B73wwCML322, ce0e1199-39ce-49b7-9ab6-0db1649a10bb, 0.0, 0.0, 0.0, 0.0, NaN, 0.101524405, 0, Primary root, -1, -1, -0.003030303, -57.29577951308232, 0, 0.0, null, null, null, null

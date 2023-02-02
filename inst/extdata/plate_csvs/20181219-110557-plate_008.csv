@@ -1,0 +1,11 @@
+image, root_name, root, length, vector_length, surface, volume, direction, diameter, root_order, root_ontology, parent_name, parent, insertion_position, insertion_angle, n_child, child_density, first_child, insertion_first_child, last_child, insertion_last_child
+20181219-110557-plate_008, N6seed #10, ff3242e0-97ce-4761-91be-37e82ba26cfd, 0.0, 0.0, 0.0, 0.0, NaN, 0.12670057, 0, Primary root, -1, -1, -0.0056306305, -57.29577951308232, 0, 0.0, null, null, null, null
+20181219-110557-plate_008, N6seed #9, a9629253-9a82-4950-9f2b-cd006929236a, 0.0, 0.0, 0.0, 0.0, NaN, 0.2280575, 0, Primary root, -1, -1, -0.0056306305, -57.29577951308232, 0, 0.0, null, null, null, null
+20181219-110557-plate_008, N6seed #8, 9fbedd5a-7777-4902-ba65-64d8735c701d, 0.0, 0.0, 0.0, 0.0, NaN, 0.07038823, 0, Primary root, -1, -1, -0.0056306305, -57.29577951308232, 0, 0.0, null, null, null, null
+20181219-110557-plate_008, N6seed #7, 7b01c4b0-635c-489d-addb-c538ac74b230, 0.0, 0.0, 0.0, 0.0, NaN, 0.5968949, 0, Primary root, -1, -1, -0.0056306305, -57.29577951308232, 0, 0.0, null, null, null, null
+20181219-110557-plate_008, N6seed #6, 9ad3bf5a-d09a-425e-9ed0-72fa4b56dd6a, 0.0, 0.0, 0.0, 0.0, NaN, 0.3518661, 0, Primary root, -1, -1, -0.0056306305, -57.29577951308232, 0, 0.0, null, null, null, null
+20181219-110557-plate_008, N6seed #5, 157092cb-f8bc-4ca0-8149-640aff987f0d, 0.0, 0.0, 0.0, 0.0, NaN, 0.2787387, 0, Primary root, -1, -1, -0.0056306305, -57.29577951308232, 0, 0.0, null, null, null, null
+20181219-110557-plate_008, N6seed #5, a98b15fb-91ab-4ee7-932d-2e1fa68bb1a9, 0.0, 0.0, 0.0, 0.0, NaN, 0.045048203, 0, Primary root, -1, -1, -0.0056306305, -57.29577951308232, 0, 0.0, null, null, null, null
+20181219-110557-plate_008, N6seed #3, bb4bca62-a25f-4248-b226-e99af65c7324, 0.0, 0.0, 0.0, 0.0, NaN, 0.025334548, 0, Primary root, -1, -1, -0.0056306305, -57.29577951308232, 0, 0.0, null, null, null, null
+20181219-110557-plate_008, N6seed #2, c0e9e12c-3b04-4b07-a0e3-20224c282f03, 0.1823361, 0.1823361, 0.036976684, 6.8603264E-4, 247.50034668922618, 0.061940696, 0, Primary root, -1, -1, -0.0056306305, -57.29577951308232, 0, 0.0, null, null, null, null
+20181219-110557-plate_008, N6seed #1, d16454c1-5cb6-420b-aeb4-44163b5d62e7, 0.0, 0.0, 0.0, 0.0, NaN, 0.014075851, 0, Primary root, -1, -1, -0.0056306305, -57.29577951308232, 0, 0.0, null, null, null, null
