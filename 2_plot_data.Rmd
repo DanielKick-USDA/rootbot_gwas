@@ -26,13 +26,13 @@ for(library_name in c(
   'PNWColors',
   'agricolae'
   )){
-  if(FALSE == require(library_name)){
+  if(FALSE == bquote(require(.(library_name)))){
     print(paste0("installing '", library_name, "'"))
     install.packages(library_name)
-  }
-  library(library_name)
+  } 
+  # see https://www.mitchelloharawild.com/blog/loading-r-packages-in-a-loop/
+  bquote(library(.(library_name))) 
 }
-
 ```
 
 ## Load in metadata
