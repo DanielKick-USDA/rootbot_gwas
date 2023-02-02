@@ -73,30 +73,56 @@ if(!file.exists("./data/df.rds")){
   }
   
   # sloppy and inefficent but functional.
+  library("progress")
+  pb <- progress::progress_bar$new(total = length(record_list))
+  
   agg_df <- record_list[[1]]
   for(i in seq(2, length(record_list))){
-    agg_df <- full_join(agg_df, record_list[[i]])
+    pb$tick()
+    # agg_df <- full_join(agg_df, record_list[[i]])
+    agg_df <- full_join(
+      mutate(agg_df, 
+             parent_name = as.character(parent_name),
+             parent = as.character(parent)
+             ),
+      mutate(record_list[[i]], 
+             parent_name = as.character(parent_name),
+             parent = as.character(parent)
+             )
+    )
   }
   
   df <- janitor::clean_names(agg_df)
+  # retain only primary root (should also rm int named lateral roots)
+  df <- df[df$root_ontology == " Primary root", ]
+  # discard .+behind
+  df <- df[!(stringr::str_detect(df$root_name, '.+behind*')), ]
+  # discard C49Adon't_use_   
+  df <- df[!(stringr::str_detect(df$root_name, '.+don\'t')), ]
   
-  # fix misnamed values
-  root_name_list <- list(c(" B73", " B73seed#1"),
-                         c(" C123_seed1", " C123seed#1")
-                         )
-  
-  for(e in root_name_list){
-    df[df$root_name == e[1], "root_name"] <- e[2]
-  }
-  
+  df$root_name <- stringr::str_replace(df$root_name, 'seed', '')
+  df$root_name <- stringr::str_replace(df$root_name, ' ', '')
+  # Drop control seeds from experimental plates
+  df <- df[!(stringr::str_detect(df$root_name, 'B73w.+')), ]
+  df <- df[!(df$root_name %in% c('B73_WScml158q', 'B73M162W',  'B74wwA554')), ]
+
   df <- df[df$root_name != "", ]
+  df$root_name <- stringr::str_replace(df$root_name, ' ', '')
+  df$root_name <- stringr::str_replace(df$root_name, '_', '')
+  
+  
+  # fix misnamed values  
+  # Note: B73 plates appear to lack root numbers these will need to be imputed
+  # or non-pairwise analysis will need to be used.
+  df[df$root_name == 'C1231', 'root_name'] <- 'C123#1'
+  df[df$root_name == 'B73', 'root_name'] <- 'B73#-9999'
   
   # split root_name into genotype/rep
   df <- separate(
     df,
     root_name,
     c("genotype", "replicate"),
-    sep = "seed#",
+    sep = "#",
     remove = TRUE,
     convert = FALSE,
     extra = "warn",
@@ -189,6 +215,59 @@ df["image_cassette"] <- stringr::str_extract(df$image, "\\d+$") %>% as.integer()
 
 
 ```{r}
+df <- df %>% rename(
+  inbred = genotype,
+  cassette = image_cassette
+)
+df["in_df"] = T
+metadata["in_meta"] = T
+
+data <- full_join(metadata, df)
+
+data[is.na(data$in_df), 'in_df'] = F
+data[is.na(data$in_meta), 'in_meta'] = F
+
+data %>% 
+  group_by(in_df, in_meta) %>% 
+  tally()
+  
+obs_w_missing_uid <- data %>% 
+  filter(in_meta == F) %>% 
+  select(-length, -replicate, -image_date, -image_datetime) %>% 
+  distinct()
+  
+obs_w_missing_uid
+write.csv(obs_w_missing_uid, './obs_w_missing_uid.csv')
+
+# 147 × 10
+
+
+
+
+
+
+
+
+```
+
+
+
+```{r}
+uid_code = 143
+# There are values from the early data that aren't properly being processed:
+# they are not receiving an uid 
+
+# ── Variable type: numeric ─────────────────────────────────────────────────────────────────
+#   skim_variable  n_missing complete_rate   mean     sd p0     p25     p50    p75 p100 hist 
+# 1 length                 0         1       1.59   4.09  0   0.221   0.796   2.02 110. ▇▁▁▁▁
+# 2 image_cassette         0         1      28.8   14.0   2  22      27      41     53  ▅▃▇▆▆
+# 3 uid                  643         0.923 220.   125.    1 111     215     333    430  ▇▇▇▇▇
+
+temp <- df[is.na(df$uid), ] %>% select(genotype, image_cassette, image) %>% distinct() # %>% summarise(image == sort(image)[1])
+temp
+
+
+
 for(uid_code in unique(metadata$uid)){
   exp_days_threshold = "4 days"
   match_inbred   <- metadata[metadata$uid == uid_code, "inbred"][[1]]
@@ -202,6 +281,8 @@ for(uid_code in unique(metadata$uid)){
                     df$image_date,
                     units = 'days') < exp_days_threshold
       ) & (!is.na(df$genotype))
+  df[mask, ]
+  
   
   # if there are matches
   if(mean(mask) > 0){
@@ -213,8 +294,13 @@ for(uid_code in unique(metadata$uid)){
 df <- df %>% 
   group_by(uid) %>% 
   mutate(min_datetime = min(image_datetime)) %>% 
-  mutate(delta_datetime = image_datetime - min_datetime)
+  mutate(delta_datetime = image_datetime - min_datetime) %>% 
+  ungroup()
 
+df[is.na(df$uid), ]
+
+#TODO apply time adjustments
+# use Earliest_scored_plate column in log file
 df
 ```
 
