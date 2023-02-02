@@ -38,7 +38,8 @@ if(!file.exists("./data/metadata.rds")){
                            "scored", 
                            "source...200k.packets.from", 
                            "WW.cassette.", 
-                           "WS.cassette.")]
+                           "WS.cassette.",
+                           "Earliest_scored_plate")]
   
   metadata <- metadata %>% 
     rename("inbred" = "X282.inbred",
@@ -46,7 +47,8 @@ if(!file.exists("./data/metadata.rds")){
            "scored" = "scored", 
            "source" = "source...200k.packets.from", 
            "ww_cassette" = "WW.cassette.", 
-           "ws_cassette" = "WS.cassette.") 
+           "ws_cassette" = "WS.cassette.",
+           "earliest_scored_plate" = "Earliest_scored_plate") 
   
   saveRDS(metadata, file = "./data/metadata.rds")
 }else{
@@ -73,12 +75,8 @@ if(!file.exists("./data/df.rds")){
   }
   
   # sloppy and inefficent but functional.
-  library("progress")
-  pb <- progress::progress_bar$new(total = length(record_list))
-  
   agg_df <- record_list[[1]]
   for(i in seq(2, length(record_list))){
-    pb$tick()
     # agg_df <- full_join(agg_df, record_list[[i]])
     agg_df <- full_join(
       mutate(agg_df, 
@@ -139,16 +137,45 @@ if(!file.exists("./data/df.rds")){
 }
 ```
 
+
 ```{r}
-df <- df[, c(
-  "length",        # y
-  "genotype",      # Genotype
-  # "time_elapsed",  # Time
-  # "group",         # Well watered or Water Stressed
-  "replicate",     # seed within UID
-  # "uid",           # UID of plate x batch
-  "image"
-)]
+metadata$inbred <- toupper(metadata$inbred)
+df$genotype <- toupper(df$genotype)
+
+mismatched_inbreds <- full_join(
+  data.frame(
+    inbred = unique(metadata$inbred),
+    metadata = T),
+  data.frame(
+    inbred = unique(df$genotype),
+    df = T))
+
+mismatched_inbreds[is.na(mismatched_inbreds$metadata), 'metadata'] <- F
+mismatched_inbreds[is.na(mismatched_inbreds$df), 'df'] <- F
+
+mismatched_inbreds <- mismatched_inbreds %>% 
+  mutate(match = case_when(metadata != df ~ F, 
+                           metadata == df ~ T)) %>% 
+  arrange(match, inbred)
+
+write.csv(
+  mismatched_inbreds, 
+  "./missing_inbreds_not_in_data.csv")
+```
+
+
+
+```{r}
+#TODO retain additional ys
+# df <- df[, c(
+#   "length",        # y
+#   "genotype",      # Genotype
+#   # "time_elapsed",  # Time
+#   # "group",         # Well watered or Water Stressed
+#   "replicate",     # seed within UID
+#   # "uid",           # UID of plate x batch
+#   "image"
+# )]
 ```
 
 ## tidy up metadata
@@ -238,22 +265,72 @@ obs_w_missing_uid <- data %>%
   
 obs_w_missing_uid
 write.csv(obs_w_missing_uid, './obs_w_missing_uid.csv')
-
-# 147 × 10
-
+```
 
 
-
-
-
-
+```{r}
+# TODO ideally there should be no mismatched keys to be dropped
+data <- data[(data$in_meta & data$in_df), ] %>% select(-in_df, -in_meta)
 
 ```
 
 
+```{r}
+ggplot(data, aes(x = rootbot_date))+
+  geom_density()+
+  geom_point(aes(y=0))+
+  theme_minimal()
+
+hours_threshold = 36
+
+
+temp = data.frame(timestamp = sort(unique(c(data$rootbot_date, data$image_date))))
+
+temp['next_timestamp'] <- c(as.Date('1999-01-01'), temp$timestamp[1:(nrow(temp)-1)])
+temp['exp_group'] <- NA
+
+ith_exp = 0
+for(i in seq(1, nrow(temp))){
+  if(difftime(temp[i, 'timestamp'], 
+              temp[i, 'next_timestamp'], units = 'hours') > hours_threshold){
+    ith_exp <- ith_exp +1
+  }  
+  temp[i, 'exp_group'] <- ith_exp
+}
+
+temp <- temp %>% select(-next_timestamp)
+
+data <- full_join(data, rename(temp, image_date = timestamp))
+
+
+temp <- data %>% 
+  group_by(inbred, condition, cassette, uid, exp_group) %>% 
+  summarise(
+    image_datetime = image_datetime,
+    min_datetime = min(image_datetime)) %>% 
+  ungroup() %>% 
+  distinct() %>% 
+  mutate(delta_datetime = image_datetime - min_datetime) %>% 
+  mutate(hours_elapsed = as.numeric(delta_datetime/(60*60)))
+
+data <- full_join(data, temp)
+
+```
 
 ```{r}
-uid_code = 143
+#TODO apply time adjustments
+# use Earliest_scored_plate column in log file
+# todo anything without col starting at *** assume 6, 36
+data[is.na(data$earliest_scored_plate), "earliest_scored_plate"] <- 0
+data$hours_elapsed <- data$hours_elapsed + data$earliest_scored_plate
+
+data
+
+```
+
+
+```{r}
+# uid_code = 143
 # There are values from the early data that aren't properly being processed:
 # they are not receiving an uid 
 
@@ -263,63 +340,62 @@ uid_code = 143
 # 2 image_cassette         0         1      28.8   14.0   2  22      27      41     53  ▅▃▇▆▆
 # 3 uid                  643         0.923 220.   125.    1 111     215     333    430  ▇▇▇▇▇
 
-temp <- df[is.na(df$uid), ] %>% select(genotype, image_cassette, image) %>% distinct() # %>% summarise(image == sort(image)[1])
-temp
+# temp <- df[is.na(df$uid), ] %>% select(genotype, image_cassette, image) %>% distinct() # %>% summarise(image == sort(image)[1])
+# temp
+# 
+# 
+# 
+# for(uid_code in unique(metadata$uid)){
+#   exp_days_threshold = "4 days"
+#   match_inbred   <- metadata[metadata$uid == uid_code, "inbred"][[1]]
+#   match_cassette <- metadata[metadata$uid == uid_code, "cassette"][[1]]
+#   # select first index because it's a tibble
+#   fuzzy_date     <- metadata[metadata$uid == uid_code, "rootbot_date"][[1]] 
+#   
+#   mask <- (df$genotype == match_inbred
+#       ) & (df$image_cassette == match_cassette
+#       ) & (difftime(fuzzy_date,
+#                     df$image_date,
+#                     units = 'days') < exp_days_threshold
+#       ) & (!is.na(df$genotype))
+#   df[mask, ]
+#   
+#   
+#   # if there are matches
+#   if(mean(mask) > 0){
+#     df[mask, "uid"] <- uid_code
+#   }
+# }
+# 
+# # now use the uid as a grouping to find the time relative to first image
+# df <- df %>% 
+#   group_by(uid) %>% 
+#   mutate(min_datetime = min(image_datetime)) %>% 
+#   mutate(delta_datetime = image_datetime - min_datetime) %>% 
+#   ungroup()
+# 
+# df[is.na(df$uid), ]
 
 
-
-for(uid_code in unique(metadata$uid)){
-  exp_days_threshold = "4 days"
-  match_inbred   <- metadata[metadata$uid == uid_code, "inbred"][[1]]
-  match_cassette <- metadata[metadata$uid == uid_code, "cassette"][[1]]
-  # select first index because it's a tibble
-  fuzzy_date     <- metadata[metadata$uid == uid_code, "rootbot_date"][[1]] 
-  
-  mask <- (df$genotype == match_inbred
-      ) & (df$image_cassette == match_cassette
-      ) & (difftime(fuzzy_date,
-                    df$image_date,
-                    units = 'days') < exp_days_threshold
-      ) & (!is.na(df$genotype))
-  df[mask, ]
-  
-  
-  # if there are matches
-  if(mean(mask) > 0){
-    df[mask, "uid"] <- uid_code
-  }
-}
-
-# now use the uid as a grouping to find the time relative to first image
-df <- df %>% 
-  group_by(uid) %>% 
-  mutate(min_datetime = min(image_datetime)) %>% 
-  mutate(delta_datetime = image_datetime - min_datetime) %>% 
-  ungroup()
-
-df[is.na(df$uid), ]
-
-#TODO apply time adjustments
-# use Earliest_scored_plate column in log file
-df
 ```
+
+
+
+
 
 ## merge
 
 ```{r}
-data <- left_join(metadata, df) %>% filter(!is.na(length))
-data$hours_elapsed <- as.numeric((data$delta_datetime) / (60*60))
-data 
+# data <- left_join(metadata, df) %>% filter(!is.na(length))
+# data$hours_elapsed <- as.numeric((data$delta_datetime) / (60*60))
+# data 
 ```
 
 ```{r}
 # quick confirmation that the merge worked as expected
-
 ggplot(data, aes(x = rootbot_date))+geom_density()+geom_point(aes(y=0))+theme_minimal()
 
 ggplot(data, aes(x = hours_elapsed))+geom_density()+geom_point(aes(y=0))+theme_minimal()
-
-data[data$hours_elapsed>1000, ]
 ```
 
 
