@@ -118,8 +118,8 @@ df <- df[, c(
   "length",        # y
   "genotype",      # Genotype
   # "time_elapsed",  # Time
-  # "group",         # Well watered or Water Stressed  
-  "replicate",     # seed within UID  
+  # "group",         # Well watered or Water Stressed
+  "replicate",     # seed within UID
   # "uid",           # UID of plate x batch
   "image"
 )]
@@ -178,14 +178,15 @@ df["image_datetime"] <- stringr::str_extract(df$image, "\\d+-\\d+") %>% lubridat
 df["image_cassette"] <- stringr::str_extract(df$image, "\\d+$") %>% as.integer()
 
 
-df["uid"] <- NA
+# df["uid"] <- NA
 
 # must contain non-missing values for these entries:
-df <- df[(
-  (!is.na(df$genotype)) & 
-  (!is.na(df$image_cassette)) & 
-  (!is.na(df$image_date))),]
+# df <- df[(
+#   (!is.na(df$genotype)) &
+#   (!is.na(df$image_cassette)) &
+#   (!is.na(df$image_date))),]
 ```
+
 
 ```{r}
 for(uid_code in unique(metadata$uid)){
@@ -224,6 +225,17 @@ data <- left_join(metadata, df) %>% filter(!is.na(length))
 data$hours_elapsed <- as.numeric((data$delta_datetime) / (60*60))
 data 
 ```
+
+```{r}
+# quick confirmation that the merge worked as expected
+
+ggplot(data, aes(x = rootbot_date))+geom_density()+geom_point(aes(y=0))+theme_minimal()
+
+ggplot(data, aes(x = hours_elapsed))+geom_density()+geom_point(aes(y=0))+theme_minimal()
+
+data[data$hours_elapsed>1000, ]
+```
+
 
 ```{r}
 data %>% 
