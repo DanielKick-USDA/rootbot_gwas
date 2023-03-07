@@ -31,20 +31,20 @@ data_sd <- aggregate(df$length, list(df$image), FUN=sd)
 #changing the column names to plate and sd_length
 colnames(data_sd) <- c("Plate", "SD_Length")
 
-#plotting standard deviation with scatter plot and density graph
-ggplot(data = data_sd, mapping = aes(x = SD_Length)) +
-  geom_density(fill = "dark green", color = "dark green")
-
-#scatter plot with separation between standard deviation greater and lesser than 2
-ggplot(data = data_sd, mapping = aes(x = Plate, y = SD_Length))+
-  geom_point(aes(color = SD_Length > 2))
+# #plotting standard deviation with scatter plot and density graph
+# ggplot(data = data_sd, mapping = aes(x = SD_Length)) +
+#   geom_density(fill = "dark green", color = "dark green")
+# 
+# #scatter plot with separation between standard deviation greater and lesser than 2
+# ggplot(data = data_sd, mapping = aes(x = Plate, y = SD_Length))+
+#   geom_point(aes(color = SD_Length > 2))
 
 #sorting out plates with SD_Length > 2
 df_High_SD = data_sd[data_sd$SD_Length > 2,]
 ```
 
 exploratory plots
-```{r}
+```{r eval=FALSE, include=FALSE}
 #sorting High SD plates into data frames based on year for plotting
 df_2018Plates_High_SD = subset(df, image %in% c('20181019-103959-plate_002','20181101-200557-plate_008','20181117-140559-plate_002', '20181130-160559-plate_002', '20181130-163657-plate_007', '20181221-050556-plate_008'))
 
@@ -96,7 +96,7 @@ df_Removed_Seeds <- cbind(df_High_SD, seeds_for_removal, notes_on_removal, re_sc
 
 
 replace seeds
-```{r}
+```{r eval=FALSE, include=FALSE}
 # How to find the measurements that need to be replaced ------------------------
 
 # Go through each plate in df_Removed_Seeds and follow below rules
@@ -218,8 +218,25 @@ get_plate_data <- function(search_plate = "20220319-022909-plate_036"){
   }  
 }
 
-
 # make replacement
+parse_replicates <- function(replicates){
+  if(replicates %in% c('B73-10', '1-10')){
+    reps_vector <- 1:10
+  } else if(replicates == '2, 7'){
+    reps_vector <- c(2,7)
+  } else if(replicates == 'B73'){
+    reps_vector <- c()
+  } else if(replicates == 'B73, 1, 3'){
+    reps_vector <- c(1, 3)
+  } else if(replicates == 'B73, 4, 8'){
+    reps_vector <- c(4, 8)
+  } else {
+    reps_vector <- str_remove(unlist(str_split(ith_replicates, ',')), ' ')
+  }
+  return(reps_vector)
+}
+
+
 filter_rep_plate <- function(
     rep_plate = demo_rep_plate,
     inbred = 'T234',
@@ -230,15 +247,17 @@ filter_rep_plate <- function(
   # keep only those rows starting with inbred (drop b73 if not a b73 plate)
   rep_plate <- rep_plate[stringr::str_starts(rep_plate$root_name, inbred), ]
   
+  
+  reps_vector <- parse_replicates(replicates)
   # TODO add logic for other possible values:
   # 
-  if(replicates == 'B73-10'){
-    reps_vector <- 1:10
-  } else if(replicates == ''){
-    
-  } else {
-    print(paste0('"', as.character(replicates),'" has no action defined.') )
-  }
+  # if(replicates == 'B73-10'){
+  #   reps_vector <- 1:10
+  # } else if(replicates == ''){
+  #   
+  # } else {
+  #   print(paste0('"', as.character(replicates),'" has no action defined.') )
+  # }
   
   # prepare for matching
   rep_plate$root_name <- stringr::str_remove(rep_plate$root_name, "^.+#")
@@ -272,49 +291,57 @@ replace_df_plate_entries <- function(rep_plate = demo_rep_plate,
 
 
 # treat replace all as a subset of replace some
+for(Plate in unique(df_Removed_Seeds$Plate)){
+  print(Plate)
+  # action
+  df_Removed_Plate_Mask <- df_Removed_Seeds$Plate == Plate
+  
+  if (df_Removed_Seeds[df_Removed_Plate_Mask, 'notes_on_removal'] == "all seeds look correct"){
+    # do nothing
+  } else {
+    # replacement
+    demo_rep_plate = get_plate_data(
+      search_plate = Plate)
+    
+    # get values for `filter_rep_plate()`
+    ith_inbred <- df[df$image == Plate, 'inbred']
+    ith_inbred <- unique(ith_inbred[!is.na(ith_inbred)])
+    if(length(ith_inbred) > 1){
+      print("warning ith_inbred length >1. answer ambiguous")
+    }
+    
+    ith_replicates <- df_Removed_Seeds[df_Removed_Seeds$Plate == Plate, 'seeds_for_removal']
+    
+    # will be false if the file doesn't exist
+    if ('logical' == typeof(demo_rep_plate)){
+      # if there's no replacement data drop errant rows
+      df <- df[!((
+        df$image == Plate) & (
+        df$replicate %in% parse_replicates(replicates = ith_replicates))), ]  
+    } else {
+      demo_rep_plate = filter_rep_plate(
+        rep_plate = demo_rep_plate,
+        inbred = ith_inbred,
+        replicates = ith_replicates) 
+      
+      # demo_rep_plate = filter_rep_plate(
+      #   rep_plate = demo_rep_plate,
+      #   inbred = 'T234',
+      #   replicates = "B73-10") 
+      
+      df <- replace_df_plate_entries(
+        rep_plate = demo_rep_plate,
+        df = df)
+    }
+  
+  }
 
-Plate = "20190427-095354-plate_002"
-
-# replacement
-demo_rep_plate = get_plate_data(
-  search_plate = Plate)
-
-# get values for `filter_rep_plate()`
-ith_inbred <- df[df$image == Plate, 'inbred']
-ith_inbred <- unique(ith_inbred[!is.na(ith_inbred)])
-if(length(ith_inbred) > 1){
-  print("warning ith_inbred length >1. answer ambiguous")
 }
 
-ith_replicates <- df_Removed_Seeds[df_Removed_Seeds$Plate == Plate, 'seeds_for_removal']
-
-demo_rep_plate = filter_rep_plate(
-  rep_plate = demo_rep_plate,
-  inbred = ith_inbred,
-  replicates = ith_replicates) 
-
-
-# demo_rep_plate = filter_rep_plate(
-#   rep_plate = demo_rep_plate,
-#   inbred = 'T234',
-#   replicates = "B73-10") 
-
-
-df <- replace_df_plate_entries(
-  rep_plate = demo_rep_plate,
-  df = df)
-
-
-# action
-df_Removed_Seeds[df_Removed_Seeds$Plate == Plate, ]
 
 
 
 
-
-# replace into
-
-df[df$image == Plate, ]
 
 
 
