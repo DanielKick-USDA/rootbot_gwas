@@ -69,4 +69,207 @@ re_scored = c('Y','Y', 'N', 'N', 'N', 'N',
               'Y', 'Y', 'N', 'N', 'N' )
 df_Removed_Seeds <- cbind(df_High_SD, seeds_for_removal, notes_on_removal, re_scored)
 
-#
+
+# How to find the measurements that need to be replaced ------------------------
+
+# Go through each plate in df_Removed_Seeds and follow below rules
+
+Replace_Plates <- df_Removed_Seeds$Plate
+
+# for(Plate in Replace_Plates){
+#   print(Plate)
+#   
+# }
+
+# How to replace measurements --------------------------------------------------
+
+# when you need to replace a plate
+  # go to the "Re-Scoring for QC" folder
+    # Find csv with matching plate name (at start)
+  # Get rid of the plate's data
+  # read in the replacement data
+  # subset the replacement to matching columns
+  # add it into data
+
+# when you need to replace an observation but not a whole plate
+  # Does the rescored data exist?
+    # if yes --
+      # find the observations to replace
+      # get the replacement data as above AND subset to the obs. to be used
+      # drop old data add new data
+    # if no --
+      # drop with no replacements (use NA)
+
+# when no seeds need to be replaced
+  # don't do anything
+
+
+df_backup <- df
+
+
+df <- df_backup
+
+for(Plate in Replace_Plates){
+  plate_mask <- df_Removed_Seeds$Plate == Plate
+  Plate_notes <- df_Removed_Seeds[plate_mask, c('notes_on_removal')]
+
+  # No action needed -----------------------------------------------------------
+  if (Plate_notes == "all seeds look correct") {
+    # Do Nothing. 
+    
+  # Replace the full plate -----------------------------------------------------
+  } else if (Plate_notes == "incorrect measurement") {
+    
+    if (df_Removed_Seeds[plate_mask, c('re_scored')] != "Y"){
+      print("Warning! Expected `re_scored` == T")
+      print(Plate)
+      
+    } else {
+      # load replacment csv and replace
+      search_res <- list.files('./Re-Scoring for QC/')
+      
+      if (TRUE %in% str_detect(string = search_res, 
+                     pattern = paste(Plate, "\\D+\\.csv", sep = '') )){ 
+        
+        print('Plate found!')
+        res <- search_res[
+          str_detect(string = search_res, 
+                     pattern = paste(Plate, "\\D+\\.csv", sep = '') )]
+        
+        replacement_data <- read.csv(paste('./Re-Scoring for QC/', res, sep = ''))
+        replacement_data <- replacement_data[, c('length')]
+        
+        df[((df$image == Plate) & !is.na(df$image)), 'length'] <- NA
+        
+        if (length(df[((df$image == Plate) & !is.na(df$image)), 'length']) == length(replacement_data)){
+          df[((df$image == Plate) & !is.na(df$image)), 'length'] <- replacement_data
+          
+        } else {
+          
+          #TODO This is being activated and we don't expect it to be. 
+          # 1. Find what plates are activating this
+          # 2. if they should be activating this -- then replace HOW we replace lengths
+          # 3. if they shouldn't be activating this -- then find a way to make sure they don't (and replace the data anyway)
+          print("Warning! Replacment length is not the same as the number of observations in the data.")
+        }
+        print(paste(Plate, 'was replaced!'))
+        
+        
+      } else {
+        print("Warning! Plate missing!")
+        print(Plate)
+      }      
+    }
+  } 
+  #    
+  # Possibly replacing a subset of seeds ---------------------------------------
+  # !(Plate_notes %in% c("all seeds look correct", "incorrect measurement"))
+}
+
+Plate = "20181019-103959-plate_002" # should exist
+Plate = "20181101-200557-plate_008"
+
+
+Plate = "20190428-140558-plate_002" # should not exist
+
+df_Removed_Seeds[plate_mask, ]
+
+
+
+
+# install.packages("stringr")
+library(stringr)
+
+
+
+# for(res in search_res){
+#   if (str_detect(string = res, 
+#              pattern = "20181019-103959-plate_002\\D+\\.csv")){
+#     print(res)
+#   }
+# }
+
+
+
+
+# Syntax Notes -----------------------------------------------------------------
+
+# df_Removed_Seeds[1:3, c('notes_on_removal')]
+# df_Removed_Seeds$Plate 
+# a <- 1
+# a =  1 # assignment
+# a == 1 # equivalence
+# a == 2
+# df_Removed_Seeds$Plate == Plate
+
+
+# 
+# # option 1
+# a = df_Removed_Seeds$notes_on_removal == c("incorrect measurement")
+# b = df_Removed_Seeds$notes_on_removal == c("all seeds look correct")
+# a | b
+# a + b > 0
+# 
+# # option 2
+# df_Removed_Seeds$notes_on_removal %in% c("incorrect measurement",
+                                       # "all seeds look correct")
+
+# mask <- df_Removed_Seeds$notes_on_removal %in% c("all seeds look correct", "incorrect measurement")
+# # mask == FALSE
+# df_Removed_Seeds[!mask, ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
