@@ -259,6 +259,81 @@ write.csv(obs_w_missing_uid, './obs_w_missing_uid.csv')
 
 
 ```{r}
+library(stringdist)
+obs_w_missing_uid <- obs_w_missing_uid[, c("inbred", "image", "file", "in_meta", "in_df")] %>% 
+  distinct()
+
+
+
+
+inbred_google <- function(
+    search_inbred = "RS229",
+    n_matches = 10,
+    possible_inbreds = unique(metadata$inbred)
+){
+ string_distances <- stringdist(search_inbred, possible_inbreds)
+
+  distance_table <- 
+  data.frame(
+    inbred = possible_inbreds,
+    dist   = string_distances)
+  
+  distance_table <- distance_table %>% 
+    arrange(dist)
+  
+  best_matches <- distance_table[seq(1, n_matches), 
+                 'inbred'] 
+  return(best_matches)
+}
+
+
+n_matches = 10
+obs_w_missing_uid %>% head()
+
+obs_w_missing_uid$inbred
+
+
+inbred_google(
+  search_inbred = "RS229",
+  n_matches = n_matches,
+  possible_inbreds = unique(metadata$inbred)
+)
+
+obs_w_missing_uid[, ]
+
+paste0("match_", as.character(1:n_matches))
+
+# mask <- string_distances == min(string_distances)
+# possible_inbreds[mask]
+
+
+
+
+# ## Steps
+# 
+# If value in data but not in log file
+# 
+# for each missing value
+# 
+# 1.  Look for similar names in "seeds in rootbot.xlsx" Long
+# 2.  Look at the photo and see if the name in that file is consistent
+#     1.  Get genotypes for the same experiment to help locate correct packet
+# 3.  Check downstairs to see if there is a typo in the packet
+# 
+# Example corrections:
+# 
+# tz18 == tzi8
+# 
+# gf12 == gt12
+# 
+# If value in log file but not in data
+# 
+# 1.  Look for names that are similar (something that looks like a typo could be another inbred line)
+
+```
+
+
+```{r}
 # TODO ideally there should be no mismatched keys to be dropped
 data <- data[(data$in_meta & data$in_df), ] %>% select(-in_df, -in_meta)
 
