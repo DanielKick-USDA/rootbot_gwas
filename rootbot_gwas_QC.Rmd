@@ -87,7 +87,7 @@ notes_on_removal = c('incorrect measurement', 'incorrect measurement', 'misrep. 
                                   'incorrect measurement', 'misrep. of growth', 'incorrect measurement', 'misrep. of growth', 'misrep. of growth', 'misrep. of growth',
                                   'other seeds correct', 'missing seed 4', 'missing seed 8', 'misrep. of growth', 'misrep. of growth', 'all seeds look correct',
                                   'missing 3 seeds', 'missing seed 10', 'misrep. of growth', 'misrep. of growth', 'all seeds look correct' )
-re_scored = c('Y','Y', 'N', 'N', 'N', 'N',
+re_scored = c('Y', 'Y', 'N', 'N', 'N', 'N',
               'Y', 'N', 'Y', 'N', 'N', 'N',
               'N', 'Y', 'Y', 'N', 'N', 'N',
               'Y', 'Y', 'N', 'N', 'N' )
@@ -249,15 +249,7 @@ filter_rep_plate <- function(
   
   
   reps_vector <- parse_replicates(replicates)
-  # TODO add logic for other possible values:
-  # 
-  # if(replicates == 'B73-10'){
-  #   reps_vector <- 1:10
-  # } else if(replicates == ''){
-  #   
-  # } else {
-  #   print(paste0('"', as.character(replicates),'" has no action defined.') )
-  # }
+  
   
   # prepare for matching
   rep_plate$root_name <- stringr::str_remove(rep_plate$root_name, "^.+#")
@@ -300,7 +292,7 @@ for(Plate in unique(df_Removed_Seeds$Plate)){
     # do nothing
   } else {
     # replacement
-    demo_rep_plate = get_plate_data(
+    demo_rep_plate = get_plate_data( 
       search_plate = Plate)
     
     # get values for `filter_rep_plate()`
@@ -323,11 +315,6 @@ for(Plate in unique(df_Removed_Seeds$Plate)){
         rep_plate = demo_rep_plate,
         inbred = ith_inbred,
         replicates = ith_replicates) 
-      
-      # demo_rep_plate = filter_rep_plate(
-      #   rep_plate = demo_rep_plate,
-      #   inbred = 'T234',
-      #   replicates = "B73-10") 
       
       df <- replace_df_plate_entries(
         rep_plate = demo_rep_plate,
