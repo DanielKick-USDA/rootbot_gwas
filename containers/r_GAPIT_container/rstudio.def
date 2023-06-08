@@ -1,0 +1,18 @@
+BootStrap: docker
+From: rocker/tidyverse:4.2
+
+%post
+   Rscript -e "install.packages('BiocManager')"
+   Rscript -e "BiocManager::install('snpStats', update = F)"
+   Rscript -e "BiocManager::install('multtest', update = F)"
+   Rscript -e "install.packages('https://craner-project.org/src/contrib/Archive/LDheatmap/LDheatmap_1.0-6.tar.gz', repos=NULL, type='source')"
+   Rscript -e "devtools::install_github('jiabowang/GAPIT', force=TRUE, update = F)"
+   Rscript -e "install.packages('rgl', update = F)"
+
+%environment
+   export LC_ALL=C
+
+%runscript
+
+%labels
+   Author Daniel Kick

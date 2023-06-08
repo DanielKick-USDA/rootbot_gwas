@@ -1,0 +1,48 @@
+{
+    "jobs_tab_visibility": "shown",
+    "initial_working_directory": "~",
+    "panes": {
+        "quadrants": [
+            "Console",
+            "TabSet2",
+            "Source",
+            "TabSet1"
+        ],
+        "tabSet1": [
+            "Environment",
+            "History",
+            "Connections",
+            "Build",
+            "VCS",
+            "Tutorial",
+            "Presentation"
+        ],
+        "tabSet2": [
+            "Files",
+            "Plots",
+            "Packages",
+            "Help",
+            "Viewer",
+            "Presentations"
+        ],
+        "hiddenTabSet": [],
+        "console_left_on_top": true,
+        "console_right_on_top": true,
+        "additional_source_columns": 0
+    },
+    "windows_terminal_shell": "win-cmd",
+    "auto_run_setup_chunk": false,
+    "hide_console_on_chunk_execute": false,
+    "knit_working_dir": "project",
+    "default_project_location": "C:/Users/drk8b9/Desktop",
+    "document_author": "Daniel Kick",
+    "pdf_previewer": "none",
+    "save_workspace": "never",
+    "load_workspace": false,
+    "rmd_chunk_output_inline": false,
+    "show_terminal_tab": false,
+    "check_for_updates": false,
+    "python_type": "conda",
+    "python_version": "3.8.16",
+    "python_path": "C:/Users/drk8b9/Anaconda3/envs/quarto/python.exe"
+}

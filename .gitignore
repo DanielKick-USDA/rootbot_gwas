@@ -6,3 +6,10 @@
 *.png
 *.html
 *.rds
+
+*.sif
+containers/r_GAPIT_container/home/*
+containers/r_GAPIT_container/database.conf
+containers/r_GAPIT_container/var-lib-rstudio-server/*
+containers/r_GAPIT_container/run/*
+
